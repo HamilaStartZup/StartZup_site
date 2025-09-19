@@ -11,26 +11,26 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-slate-800" style={{ backgroundColor: '#1F2937' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and description */}
           <div className="lg:col-span-2">
-            <div className="text-2xl font-bold text-gradient mb-4">Start IA</div>
-            <p className="text-muted-foreground mb-6 max-w-md">
+            <div className="text-2xl font-bold text-warm-gradient mb-4">Start IA</div>
+            <p className="text-gray-300 mb-6 max-w-md">
               Transformez vos processus avec l'IA : gagnez du temps, automatisez vos tâches et 
               formez vos équipes aux outils de demain.
             </p>
             <div className="space-y-2">
-              <div className="flex items-center text-muted-foreground">
+              <div className="flex items-center text-gray-300">
                 <Mail className="h-4 w-4 mr-2" />
                 <span>contact@start-ia.fr</span>
               </div>
-              <div className="flex items-center text-muted-foreground">
+              <div className="flex items-center text-gray-300">
                 <Phone className="h-4 w-4 mr-2" />
                 <span>+33 1 23 45 67 89</span>
               </div>
-              <div className="flex items-center text-muted-foreground">
+              <div className="flex items-center text-gray-300">
                 <MapPin className="h-4 w-4 mr-2" />
                 <span>Paris, France</span>
               </div>
@@ -39,13 +39,13 @@ const Footer = () => {
 
           {/* Solutions */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Nos solutions</h3>
+            <h3 className="font-semibold text-white mb-4">Nos solutions</h3>
             <ul className="space-y-2">
               {solutions.map((solution) => (
                 <li key={solution.name}>
                   <a 
                     href={solution.href} 
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-gray-300 hover:text-accent transition-colors"
                   >
                     {solution.name}
                   </a>
@@ -56,25 +56,25 @@ const Footer = () => {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Entreprise</h3>
+            <h3 className="font-semibold text-white mb-4">Entreprise</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/a-propos" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="/a-propos" className="text-gray-300 hover:text-accent transition-colors">
                   À propos
                 </a>
               </li>
               <li>
-                <a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="/contact" className="text-gray-300 hover:text-accent transition-colors">
                   Contact
                 </a>
               </li>
               <li>
-                <a href="/mentions-legales" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="/mentions-legales" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
                   Mentions légales
                 </a>
               </li>
               <li>
-                <a href="/politique-rgpd" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="/politique-rgpd" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
                   Politique RGPD
                 </a>
               </li>
@@ -82,17 +82,17 @@ const Footer = () => {
           </div>
         </div>
 
-        <Separator className="my-8" />
+        <Separator className="my-8 bg-gray-600" />
 
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-muted-foreground text-sm">
+          <p className="text-gray-300 text-sm">
             © 2024 Start IA. Tous droits réservés.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="/mentions-legales" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+            <a href="/mentions-legales" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
               Mentions légales
             </a>
-            <a href="/politique-rgpd" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+            <a href="/politique-rgpd" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
               RGPD
             </a>
           </div>
