@@ -45,7 +45,7 @@ const SolutionsSection = () => {
     <section className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gradient mb-4">
             Nos solutions
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -60,7 +60,7 @@ const SolutionsSection = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
                 <Brain className="h-8 w-8 text-white" />
               </div>
-              <CardTitle className="text-2xl text-gradient">Intelligence Artificielle</CardTitle>
+              <CardTitle className="text-2xl text-warm-gradient text-glow">Intelligence Artificielle</CardTitle>
               <CardDescription className="text-lg">
                 Solutions d'IA complètes pour transformer votre entreprise
               </CardDescription>

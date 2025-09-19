@@ -19,9 +19,9 @@ const HeroSection = () => {
               <span className="text-cyan font-medium">Innovation • Performance • Futur</span>
             </div>
             
-            <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-hero-effect">
               Booster votre performance avec{" "}
-              <span className="text-cyan">l'IA</span>
+              <span className="text-warm-gradient text-glow">l'IA</span>
             </h1>
             
             <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
@@ -35,7 +35,7 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+              <Button variant="secondary" size="lg" className="border-2 border-secondary text-secondary-foreground hover:bg-secondary/90">
                 Découvrir nos solutions
               </Button>
             </div>

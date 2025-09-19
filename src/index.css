@@ -17,18 +17,18 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 226 29% 20%;
 
-    /* IA Modern Color Palette */
-    --primary: 247 56% 61%; /* Purple */
+    /* IA Modern Color Palette - Warmer Version */
+    --primary: 14 88% 55%; /* Warm orange */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 213 88% 50%; /* Blue */
+    --secondary: 345 85% 65%; /* Warm pink-red */
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 19 91% 55%; /* Orange CTA */
-    --accent-foreground: 0 0% 100%;
+    --accent: 32 95% 60%; /* Golden yellow accent */
+    --accent-foreground: 0 0% 10%;
 
-    --cyan: 188 96% 53%; /* Tech cyan */
-    --cyan-foreground: 0 0% 100%;
+    --cyan: 195 85% 60%; /* Softer warm cyan */
+    --cyan-foreground: 0 0% 10%;
 
     --muted: 220 13% 96%;
     --muted-foreground: 215 16% 47%;
@@ -40,10 +40,12 @@ All colors MUST be HSL.
     --input: 220 13% 91%;
     --ring: 247 56% 61%;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(213 88% 50%), hsl(247 56% 61%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 13% 98%));
-    --gradient-accent: linear-gradient(135deg, hsl(19 91% 55%), hsl(25 95% 60%));
+    /* Gradients - Warmer */
+    --gradient-hero: linear-gradient(135deg, hsl(14 88% 55%), hsl(345 85% 65%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(25 15% 96%));
+    --gradient-accent: linear-gradient(135deg, hsl(32 95% 60%), hsl(45 98% 65%));
+    --gradient-warm: linear-gradient(135deg, hsl(14 88% 55%), hsl(32 95% 60%));
+    --gradient-text: linear-gradient(135deg, hsl(345 85% 65%), hsl(14 88% 55%));
     
     /* Shadows */
     --shadow-card: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -1px hsl(var(--primary) / 0.06);
@@ -79,17 +81,17 @@ All colors MUST be HSL.
     --popover: 226 29% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 247 56% 61%;
+    --primary: 14 88% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 213 88% 50%;
+    --secondary: 345 85% 65%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 19 91% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 32 95% 60%;
+    --accent-foreground: 0 0% 10%;
 
-    --cyan: 188 96% 53%;
-    --cyan-foreground: 0 0% 100%;
+    --cyan: 195 85% 60%;
+    --cyan-foreground: 0 0% 10%;
 
     --muted: 226 29% 16%;
     --muted-foreground: 215 20% 65%;
@@ -101,9 +103,11 @@ All colors MUST be HSL.
     --input: 226 29% 16%;
     --ring: 247 56% 61%;
 
-    /* Dark mode gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(213 88% 40%), hsl(247 56% 51%));
+    /* Dark mode gradients - Warmer */
+    --gradient-hero: linear-gradient(135deg, hsl(14 88% 45%), hsl(345 85% 55%));
     --gradient-card: linear-gradient(135deg, hsl(226 29% 12%), hsl(226 29% 16%));
+    --gradient-warm: linear-gradient(135deg, hsl(14 88% 45%), hsl(32 95% 50%));
+    --gradient-text: linear-gradient(135deg, hsl(345 85% 55%), hsl(14 88% 45%));
     --shadow-glow: 0 0 40px hsl(var(--cyan) / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -152,11 +156,38 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow);
   }
   
-  /* Text gradients */
+  /* Text gradients and effects */
   .text-gradient {
-    background: var(--gradient-hero);
+    background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-weight: 700;
+  }
+  
+  .text-warm-gradient {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+  
+  .text-hero-effect {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  
+  .gradient-warm {
+    background: var(--gradient-warm);
   }
 }
