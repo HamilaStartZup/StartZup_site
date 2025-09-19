@@ -39,21 +39,6 @@ const HeroSection = () => {
                 Découvrir nos solutions
               </Button>
             </div>
-            
-            <div className="mt-12 grid grid-cols-3 gap-8 text-center lg:text-left">
-              <div>
-                <div className="text-3xl font-bold text-cyan">500+</div>
-                <div className="text-white/80">Projets réalisés</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-cyan">98%</div>
-                <div className="text-white/80">Satisfaction client</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-cyan">24/7</div>
-                <div className="text-white/80">Support dédié</div>
-              </div>
-            </div>
           </div>
           
           {/* Right column - Visual */}
