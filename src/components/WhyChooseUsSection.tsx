@@ -33,7 +33,7 @@ const WhyChooseUsSection = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Pourquoi choisir <span className="text-gradient">Start IA</span> ?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-cyan max-w-3xl mx-auto">
             Notre expertise et notre approche humaine font la différence dans votre transformation digitale
           </p>
         </div>
@@ -50,7 +50,7 @@ const WhyChooseUsSection = () => {
                   <CardTitle className="text-xl text-primary">{advantage.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
+                  <CardDescription className="text-cyan leading-relaxed">
                     {advantage.description}
                   </CardDescription>
                 </CardContent>

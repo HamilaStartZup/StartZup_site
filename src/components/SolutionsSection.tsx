@@ -48,7 +48,7 @@ const SolutionsSection = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-gradient mb-4">
             Nos solutions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-cyan max-w-3xl mx-auto">
             Découvrez nos services modulaires conçus pour transformer votre entreprise avec les technologies de demain
           </p>
         </div>
@@ -61,7 +61,7 @@ const SolutionsSection = () => {
                 <Brain className="h-8 w-8 text-white" />
               </div>
               <CardTitle className="text-2xl text-warm-gradient text-glow">Intelligence Artificielle</CardTitle>
-              <CardDescription className="text-lg">
+              <CardDescription className="text-lg text-cyan">
                 Solutions d'IA complètes pour transformer votre entreprise
               </CardDescription>
             </CardHeader>
@@ -70,7 +70,7 @@ const SolutionsSection = () => {
                 {solutions[0].subSolutions.map((subSolution, index) => (
                   <div key={index} className="border border-border/50 rounded-lg p-6 bg-card/50">
                     <h4 className="font-semibold text-lg mb-3 text-primary">{subSolution.title}</h4>
-                    <p className="text-muted-foreground mb-4">{subSolution.description}</p>
+                    <p className="text-cyan mb-4">{subSolution.description}</p>
                     <Button variant="outline" size="sm" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       En savoir plus
                     </Button>
@@ -92,7 +92,7 @@ const SolutionsSection = () => {
                   <CardTitle className="text-xl text-primary">{solution.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <CardDescription className="text-muted-foreground mb-6 leading-relaxed">
+                  <CardDescription className="text-cyan mb-6 leading-relaxed">
                     {solution.description}
                   </CardDescription>
                   <Button variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors">

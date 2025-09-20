@@ -24,7 +24,7 @@ const HeroSection = () => {
               <span className="text-warm-gradient text-glow">l'IA</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-cyan mb-8 leading-relaxed">
               Transformez vos processus avec l'IA : gagnez du temps, automatisez vos tâches et 
               formez vos équipes aux outils de demain.
             </p>
