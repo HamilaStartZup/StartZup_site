@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Text content */}
-          <div className="text-white">
+          <div className="text-foreground">
             <div className="flex items-center mb-6">
               <Sparkles className="h-6 w-6 text-cyan mr-2" />
               <span className="text-cyan font-medium">Innovation • Performance • Futur</span>
@@ -24,7 +24,7 @@ const HeroSection = () => {
               <span className="text-warm-gradient text-glow">l'IA</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed">
               Transformez vos processus avec l'IA : gagnez du temps, automatisez vos tâches et 
               formez vos équipes aux outils de demain.
             </p>
@@ -35,7 +35,7 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button variant="secondary" size="lg" className="border-2 border-secondary text-secondary-foreground hover:bg-secondary/90">
+              <Button variant="secondary" size="lg" className="border-2 border-secondary text-white bg-secondary hover:bg-secondary/90">
                 Découvrir nos solutions
               </Button>
             </div>
