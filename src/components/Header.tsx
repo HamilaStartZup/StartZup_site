@@ -62,7 +62,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button variant="secondary" size="sm" className="bg-background text-foreground hover:bg-background/90 border border-border">
+            <Button variant="accent" size="sm" className="gradient-hero text-white shadow-glow">
               Prendre rendez-vous
             </Button>
           </div>
@@ -107,7 +107,7 @@ const Header = () => {
                 Contact
               </a>
               
-              <Button variant="secondary" className="w-full mt-4 bg-background text-foreground hover:bg-background/90 border border-border">
+              <Button variant="accent" className="w-full mt-4 gradient-hero text-white shadow-glow">
                 Prendre rendez-vous
               </Button>
             </div>
