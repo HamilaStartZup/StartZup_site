@@ -30,12 +30,12 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="accent" size="lg" className="shadow-hero group gradient-warm text-white border-0">
+              <Button variant="accent" size="lg" className="shadow-hero group gradient-warm text-cyan border-0">
                 Prendre rendez-vous
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button variant="secondary" size="lg" className="gradient-warm text-white border-0 hover:opacity-90">
+              <Button variant="secondary" size="lg" className="gradient-warm text-cyan border-0 hover:opacity-90">
                 Découvrir nos solutions
               </Button>
             </div>
