@@ -58,7 +58,7 @@ const SolutionsSection = () => {
           <Card className="md:col-span-2 gradient-card shadow-card hover:shadow-hero transition-all duration-300 group">
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
-                <Brain className="h-8 w-8 text-white" />
+                <Brain className="h-8 w-8 text-cyan" />
               </div>
               <CardTitle className="text-2xl text-warm-gradient text-glow">Intelligence Artificielle</CardTitle>
               <CardDescription className="text-lg text-cyan">
