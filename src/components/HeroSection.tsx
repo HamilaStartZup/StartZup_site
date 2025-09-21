@@ -19,7 +19,7 @@ const HeroSection = () => {
               <span className="text-cyan font-medium">Innovation • Performance • Futur</span>
             </div>
             
-            <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-hero-effect">
+            <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-hero-effect" style={{ WebkitTextStroke: '1px hsl(var(--primary))', textShadow: '0 0 2px hsl(var(--primary))' }}>
               Booster votre performance avec{" "}
               <span className="text-warm-gradient text-glow">l'IA</span>
             </h1>
