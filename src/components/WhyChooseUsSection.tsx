@@ -45,7 +45,7 @@ const WhyChooseUsSection = () => {
               <Card key={index} className="text-center gradient-card shadow-card hover:shadow-hero transition-all duration-300 hover:-translate-y-1">
                 <CardHeader>
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
-                    <IconComponent className="h-8 w-8 text-white" />
+                    <IconComponent className="h-8 w-8 text-cyan" />
                   </div>
                   <CardTitle className="text-xl text-primary">{advantage.title}</CardTitle>
                 </CardHeader>
