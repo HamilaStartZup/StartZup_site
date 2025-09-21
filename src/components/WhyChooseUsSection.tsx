@@ -31,7 +31,7 @@ const WhyChooseUsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Pourquoi choisir <span className="text-gradient">Start IA</span> ?
+            Pourquoi choisir <span className="text-gradient" style={{ opacity: '0.7' }}>Start IA</span> ?
           </h2>
           <p className="text-lg text-cyan max-w-3xl mx-auto">
             Notre expertise et notre approche humaine font la différence dans votre transformation digitale
