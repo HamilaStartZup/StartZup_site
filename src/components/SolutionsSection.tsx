@@ -45,7 +45,7 @@ const SolutionsSection = () => {
     <section className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4" style={{ background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--cyan)) 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'brightness(0.8) contrast(0.9)', opacity: '0.7' }}>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-primary" style={{ opacity: '0.7' }}>
             Nos solutions
           </h2>
           <p className="text-lg text-cyan max-w-3xl mx-auto">
