@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and description */}
           <div className="lg:col-span-2">
-            <div className="text-2xl font-bold text-warm-gradient mb-4">Start IA</div>
+            <div className="text-2xl font-bold mb-4" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Start IA</div>
             <p className="text-gray-300 mb-6 max-w-md">
               Transformez vos processus avec l'IA : gagnez du temps, automatisez vos tâches et 
               formez vos équipes aux outils de demain.
@@ -86,7 +86,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 text-sm">
-            © 2024 Start IA. Tous droits réservés.
+            © 2024 <span style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Start IA</span>. Tous droits réservés.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="/mentions-legales" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
