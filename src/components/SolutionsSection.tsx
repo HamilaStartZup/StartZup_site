@@ -2,6 +2,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Brain, GraduationCap, Shield, Headphones, Gamepad2 } from "lucide-react";
 
+// Fonction pour mettre le dernier mot en italique
+const italicizeLastWord = (text: string) => {
+  if (!text) return text;
+  const words = text.trim().split(/\s+/);
+  if (words.length === 0) return text;
+  const lastWord = words[words.length - 1];
+  const restWords = words.slice(0, -1).join(' ');
+  return restWords ? (
+    <>
+      {restWords} <span className="italic">{lastWord}</span>
+    </>
+  ) : (
+    <span className="italic">{lastWord}</span>
+  );
+};
+
 const SolutionsSection = () => {
   const solutions = [
     {
@@ -10,14 +26,24 @@ const SolutionsSection = () => {
       description: "Solutions d'intelligence artificielle sur mesure",
       subSolutions: [
         {
-          title: "Consulting IA",
-          description: "Identifiez vos cas d'usage IA avec nos experts. Du diagnostic au projet pilote, nous vous aidons à intégrer l'IA efficacement et en toute sécurité.",
-          link: "/consulting-ia"
+          title: "ENGAGER VOTRE ENTREPRISE",
+          description: "",
+          link: "/engager-entreprise"
         },
         {
-          title: "Formation IA",
-          description: "Passez de spectateur à acteur de l'IA. Des formations concrètes et pratiques pour comprendre, utiliser et déployer l'IA dans votre métier.",
-          link: "/formation-ia"
+          title: "START-ZUP EXPERTISE",
+          description: "",
+          link: "/expertise"
+        },
+        {
+          title: "CAMPUS PARTENAIRE",
+          description: "",
+          link: "/campus-partenaire"
+        },
+        {
+          title: "LE BOARD START-ZUP",
+          description: "",
+          link: "/board"
         }
       ]
     },
@@ -42,66 +68,55 @@ const SolutionsSection = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-background">
+    <section id="solutions" className="py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-primary" style={{ opacity: '0.7' }}>
+        {/* <div className="text-center mb-10">
+          <h2
+            className="title-acidgrotesk text-black-no-gradient heading-style-cards-service"
+            style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)', letterSpacing: '-1px', lineHeight: '1.1', marginBottom: '-6rem', fontSize: '4.375rem' }}
+          >
             Nos solutions
           </h2>
-          <p className="text-lg text-cyan max-w-3xl mx-auto">
-            Découvrez nos services modulaires conçus pour transformer votre entreprise avec les technologies de demain
+          <p className="text-lg text-black max-w-3xl mx-auto text-justify">
+            Découvrez nos services modulaires conçus pour transformer votre entreprise {""}
+            <span className="typewriter typewriter-31">avec les technologies de demain</span>
           </p>
-        </div>
+        </div> */}
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {/* IA Block - Special layout */}
-          <Card className="md:col-span-2 gradient-card shadow-card hover:shadow-hero transition-all duration-300 group">
+          <Card className="shadow-card bg-white">
             <CardHeader className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
-                <Brain className="h-8 w-8 text-cyan" />
-              </div>
-              <CardTitle className="text-2xl text-warm-gradient text-glow">Intelligence Artificielle</CardTitle>
-              <CardDescription className="text-lg text-cyan">
-                Solutions d'IA complètes pour transformer votre entreprise
-              </CardDescription>
+              <CardTitle className="text-4xl font-bold heading-style-cards-service" style={{ color: '#0a84ff' }}>
+                
+              </CardTitle>
+              
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
                 {solutions[0].subSolutions.map((subSolution, index) => (
-                  <div key={index} className="border border-border/50 rounded-lg p-6 bg-card/50">
-                    <h4 className="font-semibold text-lg mb-3 text-primary">{subSolution.title}</h4>
-                    <p className="text-cyan mb-4">{subSolution.description}</p>
-                    <Button variant="outline" size="sm" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      En savoir plus
-                    </Button>
+                  <div key={index} className="border border-border/50 rounded-lg p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-square relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
+                    <div className="absolute inset-0 bg-white/80 z-0"></div>
+                    <div className="relative z-10 flex flex-col h-full">
+                      <h4 className="font-bold mb-3 text-black" style={{ fontSize: '75px', textAlign: 'left', letterSpacing: '0.1em', fontFamily: 'monospace' }}>{italicizeLastWord(subSolution.title)}</h4>
+                      {subSolution.description && (
+                        <p className="mb-0 text-black text-justify">{italicizeLastWord(subSolution.description)}</p>
+                      )}
+                      <div className="mt-8 text-center">
+                        <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
+                          <a href={subSolution.link}>Découvrir</a>
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
+            
             </CardContent>
           </Card>
 
-          {/* Other solutions */}
-          {solutions.slice(1).map((solution, index) => {
-            const IconComponent = solution.icon;
-            return (
-              <Card key={index} className="gradient-card shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-secondary to-cyan rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
-                    <IconComponent className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-xl text-primary">{solution.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <CardDescription className="text-cyan mb-6 leading-relaxed">
-                    {solution.description}
-                  </CardDescription>
-                  <Button variant="outline" className="group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    Découvrir
-                  </Button>
-                </CardContent>
-              </Card>
-            );
-          })}
+          {/* Grille des 3 autres cartes */}
+  
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,60 +10,104 @@ import {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
 
-  const solutions = [
-    { name: "Consulting IA", href: "/consulting-ia" },
-    { name: "Formation IA", href: "/formation-ia" },
-    { name: "Cybersécurité", href: "/cybersecurite" },
-    { name: "Support IT & Infogérance", href: "/support-it" },
-    { name: "VR & 3D", href: "/vr-3d" },
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
+
+  const nosOffres = [
+    { name: "Expertise", href: "/expertise" },
+    { name: "POC", href: "/poc" },
   ];
 
+  const nosOffresColorClassesByHref = (href: string) => {
+    if (href === "/expertise" || href === "/poc") {
+      return {
+        text: "text-blue-600",
+        hoverBg: "hover:bg-blue-50",
+        border: "bg-blue-500",
+        highlightBg: "data-[highlighted]:bg-blue-50",
+        highlightText: "data-[highlighted]:text-blue-700",
+      };
+    }
+    return { text: "text-black", hoverBg: "hover:bg-gray-50", border: "bg-gray-500", highlightBg: "", highlightText: "" };
+  };
+
+
+
+
+
   return (
-    <header className="relative bg-card/80 backdrop-blur-md border-b border-border/50 sticky top-0 z-50">
+    <header className="relative sticky top-0 z-50" style={{ backgroundColor: '#1F2937' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="text-2xl font-bold" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              Start IA
+            <a href="/" className="text-2xl font-bold">
+              <span style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Start-zup</span>
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-foreground hover:text-primary transition-colors">
+            <a href="/" className="transition-colors relative text-white hover:text-gray-200">
               Accueil
+              {currentPath === "/" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
             </a>
             
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-primary transition-colors">
-                Nos solutions
-                <ChevronDown className="ml-1 h-4 w-4" />
+              <DropdownMenuTrigger className="flex items-center transition-colors relative text-white hover:text-gray-200">
+                Nos offres
+                <ChevronDown className="ml-1 h-4 w-4 text-white" />
+                {nosOffres.some(s => s.href === currentPath) && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56">
-                {solutions.map((solution) => (
-                  <DropdownMenuItem key={solution.name} asChild>
-                    <a href={solution.href} className="w-full">
-                      {solution.name}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
+                {nosOffres.map((offre) => {
+                  const c = nosOffresColorClassesByHref(offre.href);
+                  return (
+                    <DropdownMenuItem key={offre.name} asChild>
+                      <a
+                        href={offre.href}
+                        className={`w-full ${c.text} ${c.hoverBg} ${c.highlightBg} ${c.highlightText} hover:text-current`}
+                      >
+                        {offre.name}
+                      </a>
+                    </DropdownMenuItem>
+                  );
+                })}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="/a-propos" className="text-foreground hover:text-primary transition-colors">
-              À propos
+            <a href="/engager-entreprise" className="transition-colors relative text-white hover:text-gray-200">
+              Engager votre entreprise
+              {currentPath === "/engager-entreprise" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
             </a>
-            <a href="/contact" className="text-foreground hover:text-primary transition-colors">
+
+            <a href="/campus-partenaire" className="transition-colors relative text-white hover:text-gray-200">
+              Campus partenaire
+              {currentPath === "/campus-partenaire" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
+            </a>
+
+            <a href="/board" className="transition-colors relative text-white hover:text-gray-200">
+              Board
+              {currentPath === "/board" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
+            </a>
+
+            <a href="/a-propos" className="transition-colors relative text-white hover:text-gray-200">
+              Notre manifeste
+              {currentPath === "/a-propos" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
+            </a>
+            <a href="/contact" className="transition-colors relative text-white hover:text-gray-200">
               Contact
+              {currentPath === "/contact" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
             </a>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button variant="accent" size="sm" className="gradient-warm text-cyan shadow-glow border-0">
-              Prendre rendez-vous
+            <Button asChild variant="accent" size="sm" className="gradient-accent text-accent-foreground shadow-hero border-0">
+              <a href="/contact">Prendre rendez-vous</a>
             </Button>
           </div>
 
@@ -83,32 +127,54 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border/50">
             <div className="space-y-4">
-              <a href="/" className="block text-foreground hover:text-primary transition-colors">
+              <a href="/" className="block transition-colors relative inline-block text-white hover:text-gray-200">
                 Accueil
+                {currentPath === "/" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </a>
               
               <div className="space-y-2">
-                <p className="text-sm font-medium text-muted-foreground">Nos solutions</p>
-                {solutions.map((solution) => (
-                  <a
-                    key={solution.name}
-                    href={solution.href}
-                    className="block pl-4 text-foreground hover:text-primary transition-colors"
-                  >
-                    {solution.name}
-                  </a>
-                ))}
+                <p className="text-sm font-medium text-white">Nos offres</p>
+                {nosOffres.map((offre) => {
+                  const c = nosOffresColorClassesByHref(offre.href);
+                  return (
+                    <a
+                      key={offre.name}
+                      href={offre.href}
+                      className={`block pl-4 text-white hover:text-gray-200 transition-colors relative ${offre.href === currentPath ? 'font-semibold' : ''}`}
+                    >
+                      {offre.name}
+                      <span className={`absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 ${c.border}`}></span>
+                    </a>
+                  );
+                })}
               </div>
 
-              <a href="/a-propos" className="block text-foreground hover:text-primary transition-colors">
-                À propos
+              <a href="/engager-entreprise" className="block transition-colors relative inline-block text-white hover:text-gray-200">
+                Engager votre entreprise
+                {currentPath === "/engager-entreprise" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </a>
-              <a href="/contact" className="block text-foreground hover:text-primary transition-colors">
+
+              <a href="/campus-partenaire" className="block transition-colors relative inline-block text-white hover:text-gray-200">
+                Campus partenaire
+                {currentPath === "/campus-partenaire" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
+              </a>
+
+              <a href="/board" className="block transition-colors relative inline-block text-white hover:text-gray-200">
+                Board
+                {currentPath === "/board" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
+              </a>
+
+              <a href="/a-propos" className="block transition-colors relative inline-block text-white hover:text-gray-200">
+                Notre manifeste
+                {currentPath === "/a-propos" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
+              </a>
+              <a href="/contact" className="block transition-colors relative inline-block text-white hover:text-gray-200">
                 Contact
+                {currentPath === "/contact" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </a>
               
-              <Button variant="accent" className="w-full mt-4 gradient-warm text-cyan shadow-glow border-0">
-                Prendre rendez-vous
+              <Button asChild variant="accent" className="w-full mt-4 gradient-accent text-accent-foreground shadow-hero border-0">
+                <a href="/contact">Prendre rendez-vous</a>
               </Button>
             </div>
           </div>

@@ -64,6 +64,7 @@ export default {
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
+        acidgrotesk: ['Space Grotesk', 'Inter', 'Arial', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

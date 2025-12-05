@@ -1,71 +1,431 @@
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Lightbulb, Target } from "lucide-react";
+import { Target } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import chgLogo from "@/assets/CHG.png";
+import ibmLogo from "@/assets/ibm.png";
+import mantesLogo from "@/assets/mantes.png";
+import valyuLogo from "@/assets/valyu.png";
+import yvelinesLogo from "@/assets/yvelines.png";
+import googleLogo from "@/assets/google.png";
+import microsoftLogo from "@/assets/microsoft.png";
+import missionlocLogo from "@/assets/missionloc.png";
+import nextdecisionLogo from "@/assets/nextdecision.png";
+import regionIDFLogo from "@/assets/regionIDF.png";
+import salesForceLogo from "@/assets/salesForce.png";
+import trappesLogo from "@/assets/trappes.png";
+import ambiLogo from "@/assets/ambi.png";
+import ardLogo from "@/assets/ard.png";
+import awsLogo from "@/assets/aws.png";
+import intmLogo from "@/assets/intm.png";
+import odooLogo from "@/assets/odoo.png";
+
+// Fonction pour mettre le dernier mot en italique
+const italicizeLastWord = (text: string) => {
+  if (!text) return text;
+  const words = text.trim().split(/\s+/);
+  if (words.length === 0) return text;
+  const lastWord = words[words.length - 1];
+  const restWords = words.slice(0, -1).join(' ');
+  return restWords ? (
+    <>
+      {restWords} <span className="italic">{lastWord}</span>
+    </>
+  ) : (
+    <span className="italic">{lastWord}</span>
+  );
+};
 
 const WhyChooseUsSection = () => {
+  const [isInscriptionModalOpen, setIsInscriptionModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    nom: "",
+    email: "",
+    telephone: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: Envoyer les données du formulaire
+    console.log("Formulaire soumis:", formData);
+    // Fermer la modal après soumission
+    setIsInscriptionModalOpen(false);
+    // Réinitialiser le formulaire
+    setFormData({ nom: "", email: "", telephone: "", message: "" });
+  };
+
   const advantages = [
     {
-      icon: CheckCircle,
-      title: "Expertise reconnue",
-      description: "Des experts dans chaque domaine : IA, cybersécurité, support IT, réalité virtuelle."
-    },
-    {
-      icon: Users,
-      title: "Accessibilité",
-      description: "Des solutions conçues pour les PME, collectivités et startups : simples, abordables et concrètes."
-    },
-    {
-      icon: Lightbulb,
-      title: "Accompagnement humain",
-      description: "Pas de jargon compliqué : nous vulgarisons et vous guidons pas à pas."
-    },
-    {
       icon: Target,
-      title: "Résultats concrets",
-      description: "Décisions plus rapides, projets mieux valorisés, systèmes plus sécurisés."
+      title: "FORMEZ VOUS A LA TECH ET L'IA",
+      intro: "",
+      description: "",
+      expansion: "",
+      callToAction: "",
+      opportunities: null,
+      buttonText: "Inscription",
+      buttonLink: "/contact"
     }
   ];
 
-  return (
-    <section className="py-16 lg:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-            Pourquoi choisir <span style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', opacity: '0.7' }}>Start IA</span><span className="text-foreground"> ?</span>
-          </h2>
-          <p className="text-lg text-cyan max-w-3xl mx-auto">
-            Notre expertise et notre approche humaine font la différence dans votre transformation digitale
-          </p>
-        </div>
+  const partnerLogos = [
+    { name: "IBM", tagline: "Cloud & IA", image: ibmLogo },
+    { name: "Microsoft", tagline: "Modern Workplace", image: microsoftLogo },
+    { name: "Google Cloud", tagline: "Data & ML", image: googleLogo },
+    { name: "CHG", tagline: "Réalité mixte", image: chgLogo },
+    { name: "Mantes", tagline: "Partenariat territorial", image: mantesLogo },
+    { name: "Valyu", tagline: "Partenariat", image: valyuLogo },
+    { name: "Yvelines", tagline: "Partenariat territorial", image: yvelinesLogo },
+    { name: "Mission Locale", tagline: "Partenariat", image: missionlocLogo },
+    { name: "Next Decision", tagline: "Partenariat", image: nextdecisionLogo },
+    { name: "Région IDF", tagline: "Partenariat territorial", image: regionIDFLogo },
+    { name: "Salesforce", tagline: "CRM & Cloud", image: salesForceLogo },
+    { name: "Trappes", tagline: "Partenariat territorial", image: trappesLogo },
+    { name: "AMBI", tagline: "Partenariat", image: ambiLogo },
+    { name: "ARD", tagline: "Partenariat", image: ardLogo },
+    { name: "AWS", tagline: "Cloud & Scalabilité", image: awsLogo },
+    { name: "INTM", tagline: "Partenariat", image: intmLogo },
+    { name: "Odoo", tagline: "ERP & Business", image: odooLogo },
+  ];
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setOffset((prev) => (prev + 1) % partnerLogos.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [partnerLogos.length]);
+
+  const activeIndex = offset % partnerLogos.length;
+
+  return (
+    <>
+    <section className="pt-0 pb-24 lg:pb-32 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-center mb-12">
           {advantages.map((advantage, index) => {
             const IconComponent = advantage.icon;
+            const cardClasses = "w-full gradient-card shadow-card hover:shadow-hero transition-all duration-300 hover:-translate-y-1";
+            
             return (
-              <Card key={index} className="text-center gradient-card shadow-card hover:shadow-hero transition-all duration-300 hover:-translate-y-1">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
-                    <IconComponent className="h-8 w-8 text-cyan" />
-                  </div>
-                  <CardTitle className="text-xl text-primary">{advantage.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-cyan leading-relaxed">
-                    {advantage.description}
-                  </CardDescription>
-                </CardContent>
+              <Card key={index} className={`${cardClasses} flex flex-col relative overflow-hidden`} style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
+                <div className="absolute inset-0 bg-white/80 z-0"></div>
+                <div className="relative z-10 flex flex-col h-full">
+                  <CardHeader className="p-6 border-b border-border/50">
+                    <CardTitle className="font-bold text-black" style={{ fontSize: '75px', minHeight: 'auto', textAlign: 'left', letterSpacing: '0.1em', fontFamily: 'monospace' }}>{italicizeLastWord(advantage.title)}</CardTitle>
+                    {advantage.intro && (
+                      <p className="text-black font-semibold mb-3 text-center text-sm mt-2">{italicizeLastWord(advantage.intro)}</p>
+                    )}
+                  </CardHeader>
+                  <CardContent className="flex flex-col flex-1 p-6">
+                    <div className="flex-1">
+                      {advantage.description && (
+                        <p className="text-black mb-3 text-sm">{italicizeLastWord(advantage.description)}</p>
+                      )}
+                      
+                      {advantage.expansion && (
+                        <p className="text-black mb-3 text-sm">{italicizeLastWord(advantage.expansion)}</p>
+                      )}
+                      
+                      {advantage.callToAction && (
+                        <p className="text-black font-semibold mb-4">{italicizeLastWord(advantage.callToAction)}</p>
+                      )}
+                      
+                      {advantage.opportunities && (
+                        <div className="mb-4">
+                          <p className="text-black font-semibold mb-2 text-sm">{italicizeLastWord(advantage.opportunities.title)}</p>
+                          <ul className="space-y-1">
+                            {advantage.opportunities.items.map((item, idx) => (
+                              <li key={idx} className="flex items-start text-black text-sm">
+                                <span className="inline-flex items-center justify-center w-3 h-3 bg-purple-500 rounded-full mr-2 text-white text-xs font-bold mt-0.5 flex-shrink-0">◆</span>
+                                <span>{italicizeLastWord(item)}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="mt-8 text-center">
+                      {advantage.buttonText === "Inscription" ? (
+                        <Button 
+                          onClick={() => setIsInscriptionModalOpen(true)}
+                          variant="accent" 
+                          size="lg" 
+                          className="gradient-accent text-accent-foreground shadow-hero"
+                        >
+                          {advantage.buttonText}
+                        </Button>
+                      ) : (
+                        <Button 
+                          asChild
+                          variant="accent" 
+                          size="lg" 
+                          className="gradient-accent text-accent-foreground shadow-hero"
+                        >
+                          <a href={advantage.buttonLink || "/contact"}>{advantage.buttonText || "Contactez-nous"}</a>
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
+                </div>
               </Card>
             );
           })}
         </div>
 
-        <div className="text-center">
-          <Button variant="accent" size="lg" className="shadow-hero">
-            Prendre rendez-vous
-          </Button>
+        {/* Formation IBM */}
+        <div className="mt-8 w-full">
+          <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 bg-white overflow-hidden flex flex-col">
+            <CardContent className="p-5 md:p-6 flex-1 flex flex-row items-center gap-6">
+              <div className="flex-1 space-y-3">
+                <p className="text-xs font-semibold text-black uppercase tracking-wide">
+                  Des parcours certifiants 100% en <span className="italic">ligne.</span>
+                </p>
+                <h3 className="text-xl md:text-2xl font-bold text-black">
+                  Formez-vous gratuitement<br />
+                  avec IBM Skills <span className="italic">Build</span>
+                </h3>
+                <div className="space-y-2 pt-3 border-t border-black/20">
+                  <div className="flex items-start space-x-2">
+                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-black font-medium text-sm">
+                      <span className="font-bold">Hardskills</span> : Les essentiels de la <span className="italic">Tech</span>
+                    </p>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-black font-medium text-sm">
+                      <span className="font-bold">Soft skills</span> : Compétences professionnelles et savoir <span className="italic">être</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex-shrink-0">
+                <Button asChild variant="accent" size="default" className="gradient-accent text-accent-foreground shadow-hero">
+                  <a href="/contact">Accéder à notre programme !</a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Deux nouvelles cartes */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12 mt-12">
+          <div className="border border-border/50 rounded-lg p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-square relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
+            <div className="absolute inset-0 bg-white/80 z-0"></div>
+            <div className="relative z-10 flex flex-col h-full">
+              <h4 className="font-bold mb-3 text-black" style={{ fontSize: '75px', textAlign: 'left', letterSpacing: '0.1em', fontFamily: 'monospace' }}>{italicizeLastWord("NOS FILIÉRES DE FORMATION")}</h4>
+              <p className="mb-0 text-black text-justify"></p>
+              <div className="mt-8 text-center">
+                <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
+                  <a href="#">Découvrir</a>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="border border-border/50 rounded-lg p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-square relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
+            <div className="absolute inset-0 bg-white/80 z-0"></div>
+            <div className="relative z-10 flex flex-col h-full">
+              <h4 className="font-bold mb-3 text-black" style={{ fontSize: '75px', textAlign: 'left', letterSpacing: '0.1em', fontFamily: 'monospace' }}>{italicizeLastWord("DONNEZ VIE A VOS IDEES GRACE À UN POC")}</h4>
+              <p className="mb-0 text-black text-justify"></p>
+              <div className="mt-8 text-center">
+                <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
+                  <a href="/poc">Découvrir</a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section Formation Entreprise */}
+        <div className="mt-8 w-full">
+          <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 bg-white overflow-hidden">
+            <CardContent className="p-5 md:p-8 flex flex-row items-center gap-8">
+              <div className="flex-1">
+                <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
+                  Vous souhaitez former les collaborateurs de votre entreprise à l'IA ?
+                </h3>
+                <p className="text-lg font-semibold text-black mb-4">
+                  Des formations adaptées à tous les niveaux :
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start space-x-3">
+                    <span className="text-black mt-1">•</span>
+                    <span className="text-black">Comprendre l'IA générative et décisionnel</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-black mt-1">•</span>
+                    <span className="text-black">Utiliser les IA métiers au quotidien</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-black mt-1">•</span>
+                    <span className="text-black">Créer des prompts professionnels</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-black mt-1">•</span>
+                    <span className="text-black">Concevoir une automatisation de A à Z</span>
+                  </li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+      </div>
+    </section>
+
+    {/* Carousel Partenaires */}
+    <section className="pt-0 pb-24 lg:pb-32 bg-white">
+      <div className="mt-12 px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl bg-white shadow-card p-8 lg:p-10 border border-border/50">
+          <div className="text-center mb-8">
+            <p className="text-sm uppercase tracking-widest text-gray-500">Nos partenaires</p>
+            <h3 className="text-3xl font-bold mt-3 text-slate-900">Un réseau solide pour accélérer vos projets</h3>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[0, 1, 2, 3].map((index) => {
+              const partner = partnerLogos[(offset + index) % partnerLogos.length];
+              return (
+                <div
+                  key={`${partner.name}-${index}`}
+                  className="rounded-2xl border border-border/40 p-6 text-center flex flex-col items-center justify-center bg-slate-50"
+                >
+                  {partner.image ? (
+                    <div className="w-full h-24 flex items-center justify-center">
+                      <img src={partner.image} alt={partner.name} className="max-w-full max-h-full object-contain" />
+                    </div>
+                  ) : (
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 text-white flex items-center justify-center text-2xl font-semibold shadow-md">
+                      {partner.name.slice(0, 2).toUpperCase()}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
+
+    {/* Modal Inscription */}
+    <Dialog open={isInscriptionModalOpen} onOpenChange={setIsInscriptionModalOpen}>
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold text-black">Inscription aux formations</DialogTitle>
+          <DialogDescription className="text-black">
+            Start ZUP vous accompagne pas à pas pour développer vos compétences numériques et vous ouvrir les portes des métiers de la tech et de l'IA.
+          </DialogDescription>
+        </DialogHeader>
+        
+        <div className="space-y-6">
+          {/* Texte de présentation */}
+          <div className="space-y-4">
+            <p className="text-black leading-relaxed">
+              Start ZUP vous accompagne pas à pas pour développer vos compétences numériques et vous ouvrir les portes des métiers de la tech et de l'IA. Notre mission est simple : rendre ces métiers accessibles, quels que soient votre parcours ou votre niveau de départ.
+            </p>
+            <p className="text-black leading-relaxed">
+              Avec ou sans diplôme, vous pouvez rejoindre nos formations. Notre seul critère de sélection : votre motivation.
+            </p>
+            <p className="text-black leading-relaxed">
+              Découvrez nos parcours professionnalisants en Développement, Réseaux & Cybersécurité, et Data / IA, conçus pour vous donner les compétences concrètes recherchées par les entreprises.
+            </p>
+          </div>
+
+          {/* Formulaire */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="nom" className="block text-sm font-medium text-black mb-2">
+                  Nom complet *
+                </label>
+                <Input
+                  id="nom"
+                  type="text"
+                  required
+                  value={formData.nom}
+                  onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
+                  Email *
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full"
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="telephone" className="block text-sm font-medium text-black mb-2">
+                Téléphone *
+              </label>
+              <Input
+                id="telephone"
+                type="tel"
+                required
+                value={formData.telephone}
+                onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
+                className="w-full"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
+                Message (optionnel)
+              </label>
+              <Textarea
+                id="message"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full"
+                rows={4}
+                placeholder="Dites-nous en plus sur vos motivations..."
+              />
+            </div>
+            <div className="flex justify-end">
+              <Button type="submit" variant="accent" size="lg" className="gradient-accent text-accent-foreground shadow-hero">
+                Envoyer ma demande
+              </Button>
+            </div>
+          </form>
+
+          {/* Espace pour les vidéos - 6 vignettes */}
+          <div className="mt-8">
+            <h3 className="text-xl font-bold text-black mb-4">Découvrez nos formations en vidéo</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {[1, 2, 3, 4, 5, 6].map((index) => (
+                <div
+                  key={index}
+                  className="aspect-video bg-gray-100 border border-gray-300 rounded-lg flex items-center justify-center"
+                >
+                  <span className="text-gray-400 text-sm">Vidéo {index}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 };
 
