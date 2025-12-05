@@ -187,7 +187,7 @@ const WhyChooseUsSection = () => {
 
         {/* Formation IBM */}
         <div className="mt-8 w-full">
-          <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 bg-white overflow-hidden flex flex-col">
+          <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 overflow-hidden flex flex-col" style={{ background: 'linear-gradient(180deg, hsl(320 100% 95%), hsl(280 100% 92%), hsl(60 100% 90%), hsl(30 100% 88%))' }}>
             <CardContent className="p-5 md:p-6 flex-1 flex flex-row items-center gap-6">
               <div className="flex-1 space-y-3">
                 <p className="text-xs font-semibold text-black uppercase tracking-wide">
@@ -252,7 +252,7 @@ const WhyChooseUsSection = () => {
 
         {/* Section Formation Entreprise */}
         <div className="mt-8 w-full">
-          <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 bg-white overflow-hidden">
+          <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(320 100% 95%), hsl(280 100% 92%), hsl(60 100% 90%), hsl(30 100% 88%))' }}>
             <CardContent className="p-5 md:p-8 flex flex-row items-center gap-8">
               <div className="flex-1">
                 <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">

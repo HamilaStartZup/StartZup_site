@@ -11,7 +11,7 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${whatsappImage})` }}
       />
       {/* Overlay pour assurer la lisibilité du texte */}
-      <div className="absolute inset-0 bg-white/70" />
+      <div className="absolute inset-0 bg-white/35" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         <div className="w-full">
