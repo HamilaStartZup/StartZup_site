@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/useReveal";
-import photoImage from "@/assets/PHOTO.jpeg";
+import { CheckCircle2 } from "lucide-react";
 
 const Formation = () => {
   useReveal();
@@ -34,12 +34,51 @@ const Formation = () => {
         <section className="py-16 lg:py-20 bg-white reveal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-              <div className="mb-8">
-                <img 
-                  src={photoImage} 
-                  alt="Formation entreprise IA" 
-                  className="w-full h-auto rounded-lg object-cover"
-                />
+              <div className="text-center mb-12">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-black">
+                  Vous souhaitez former les collaborateurs de votre entreprise à l'IA ?
+                </h2>
+                <p className="text-xl sm:text-2xl text-gray-700 font-semibold mb-8">
+                  Des formations adaptées à tous les niveaux :
+                </p>
+              </div>
+              
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <p className="text-lg font-semibold text-gray-800">
+                      Comprendre l'IA générative et décisionnel
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+                    <p className="text-lg font-semibold text-gray-800">
+                      Utiliser les IA métiers au quotidien
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-pink-50 to-orange-50 p-6 rounded-xl border border-pink-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-pink-600 flex-shrink-0 mt-1" />
+                    <p className="text-lg font-semibold text-gray-800">
+                      Créer des prompts professionnels
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 rounded-xl border border-orange-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex items-start gap-4">
+                    <CheckCircle2 className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
+                    <p className="text-lg font-semibold text-gray-800">
+                      Concevoir une automatisation de A à Z
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
