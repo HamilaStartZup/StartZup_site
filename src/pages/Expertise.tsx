@@ -49,7 +49,7 @@ const Expertise = () => {
             
             <div className="max-w-5xl mx-auto">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-0 mb-8" style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)' }}>
+                <TabsList className="grid w-full grid-cols-2 gap-2 sm:gap-0 mb-8" style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)' }}>
                   <TabsTrigger 
                     value="solutions-ia" 
                     className="text-black text-xs sm:text-sm transition-all"
@@ -67,15 +67,6 @@ const Expertise = () => {
                     }}
                   >
                     Support IT & Cybersécurité
-                  </TabsTrigger>
-                  <TabsTrigger 
-                    value="poc" 
-                    className="text-black text-xs sm:text-sm transition-all"
-                    style={{ 
-                      background: activeTab === "poc" ? 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' : 'transparent'
-                    }}
-                  >
-                    Création de POC
                   </TabsTrigger>
                 </TabsList>
 
@@ -296,57 +287,6 @@ const Expertise = () => {
               </div>
               
                   <div className="mt-6 text-center">
-                    <Button 
-                      asChild
-                      variant="accent" 
-                      size="lg" 
-                      className="gradient-accent text-accent-foreground shadow-hero"
-                    >
-                      <a href="/contact">Contactez-nous</a>
-                    </Button>
-                  </div>
-                </TabsContent>
-
-                <TabsContent value="poc" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' }}>
-                  <h3 className="text-xl md:text-2xl font-bold mb-6 text-black">Création de POC (entreprises + entrepreneurs et porteurs de projets)</h3>
-                  <p className="text-black mb-6 text-justify">
-                    Vous êtes porteur de projet, entrepreneur ou une entreprise ? Donnez vie à vos idées grâce à un POC.
-                  </p>
-
-                  <div className="bg-white/80 p-6 rounded-lg mb-6">
-                    <h4 className="text-lg font-bold mb-4 text-black">Notre accompagnement</h4>
-                    <p className="text-black mb-4 text-justify">
-                      Chez Start Zup, nous vous aidons à transformer votre concept en un POC solide, pertinent et opérationnel.
-                    </p>
-                    <p className="text-black mb-4 font-semibold">Nous mettons à votre disposition :</p>
-                    <ul className="space-y-3 text-black mb-4">
-                      <li className="flex items-start">
-                        <span className="inline-flex items-center justify-center w-4 h-4 bg-blue-500 rounded-full mr-2 text-white text-xs font-bold mt-1">✓</span>
-                        <span>Un accompagnement personnalisé pour clarifier votre besoin et structurer votre idée.</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="inline-flex items-center justify-center w-4 h-4 bg-blue-500 rounded-full mr-2 text-white text-xs font-bold mt-1">✓</span>
-                        <span>Une équipe de talents formés (data, IA, développement, cybersécurité) pour concevoir un POC qui répond à vos enjeux.</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="inline-flex items-center justify-center w-4 h-4 bg-blue-500 rounded-full mr-2 text-white text-xs font-bold mt-1">✓</span>
-                        <span>Un suivi méthodologique pour vous guider à chaque étape, de l'idéation à la mise en test.</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="inline-flex items-center justify-center w-4 h-4 bg-blue-500 rounded-full mr-2 text-white text-xs font-bold mt-1">✓</span>
-                        <span>Des conseils stratégiques pour analyser les résultats, ajuster votre projet et préparer la suite (MVP, développement complet, présentation à des investisseurs, etc.).</span>
-                      </li>
-                    </ul>
-                    <p className="text-black text-justify font-semibold">
-                      Notre objectif est simple : vous permettre de valider rapidement votre solution, d'accélérer votre innovation et de sécuriser vos décisions.
-                </p>
-              </div>
-
-                  <p className="text-black mb-6 text-center text-lg font-semibold">
-                    Prêt à concrétiser votre idée ? Nous sommes là pour vous accompagner.
-                  </p>
-
-                  <div className="text-center">
                     <Button 
                       asChild
                       variant="accent" 
