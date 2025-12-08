@@ -92,7 +92,7 @@ const CampusPartenaire = () => {
                   <div className="flex items-start space-x-4">
                     <Target className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
                     <div>
-                      <h2 className="text-2xl font-bold text-black mb-4">En 2026, Start Zup ouvrira de nouveaux lieux</h2>
+                      <h2 className="text-2xl font-bold text-black mb-4">En 2026, plus de talents chez Start Zup</h2>
                       <p className="text-black leading-relaxed mb-4">
                         Afin d'élargir sa capacité d'accueil, d'augmenter son vivier de talents et de répondre à la demande croissante de partenaires souhaitant collaborer avec nous.
                       </p>
@@ -116,8 +116,9 @@ const CampusPartenaire = () => {
                   <div className="flex items-start space-x-4">
                     <ArrowRight className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
                     <div>
+                      <h2 className="text-2xl font-bold text-black mb-4">Implantez Start Zup sur votre territoire</h2>
                       <p className="text-lg md:text-xl text-black leading-relaxed">
-                        Vous souhaitez accueillir Start Zup dans votre ville, votre tiers-lieu ou collaborer en tant qu'entreprise ? Contactez-nous pour étudier ensemble l'ouverture d'un site, la mise en place d'un partenariat ou l'intégration de nos solutions sur votre territoire.
+                        Vous souhaitez accueillir Start Zup dans votre ville ou votre tiers-lieu ? Contactez-nous pour étudier ensemble l'ouverture d'un site, la mise en place d'un partenariat ou l'intégration de nos solutions sur votre territoire.
                       </p>
                     </div>
                   </div>

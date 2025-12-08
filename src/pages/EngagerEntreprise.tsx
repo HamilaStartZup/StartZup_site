@@ -63,33 +63,66 @@ const EngagerEntreprise = () => {
             <h2 className="text-2xl lg:text-3xl font-bold mb-12 font-inter text-center text-black" style={{ fontSize: '2rem', minHeight: 'auto' }}>Notre approche en 3 étapes</h2>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Target className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-colors">
+                    <Target className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-3">1. Identifier</h3>
-                  <p className="text-gray-700">Des profils à fort potentiel issus des QPV</p>
+                  <h3 className="text-xl font-bold text-black mb-3 group-hover:text-white transition-colors">1. Identifier</h3>
+                  <p className="text-gray-700 group-hover:text-white/90 transition-colors">Des profils à fort potentiel issus des QPV</p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="w-8 h-8 text-purple-600" />
+                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-colors">
+                    <Award className="w-8 h-8 text-purple-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-3">2. Former</h3>
-                  <p className="text-gray-700">Aux compétences techniques et opérationnelles recherchées</p>
+                  <h3 className="text-xl font-bold text-black mb-3 group-hover:text-white transition-colors">2. Former</h3>
+                  <p className="text-gray-700 group-hover:text-white/90 transition-colors">Aux compétences techniques et opérationnelles recherchées</p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Briefcase className="w-8 h-8 text-green-600" />
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-colors">
+                    <Briefcase className="w-8 h-8 text-green-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold text-black mb-3">3. Proposer</h3>
-                  <p className="text-gray-700">Des candidats immédiatement employables</p>
+                  <h3 className="text-xl font-bold text-black mb-3 group-hover:text-white transition-colors">3. Proposer</h3>
+                  <p className="text-gray-700 group-hover:text-white/90 transition-colors">Des candidats immédiatement employables</p>
                 </CardContent>
               </Card>
             </div>
@@ -133,24 +166,57 @@ const EngagerEntreprise = () => {
               </p>
               
               <div className="grid md:grid-cols-3 gap-6">
-                <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+                <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                  background: 'white',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'white';
+                  e.currentTarget.style.boxShadow = '';
+                }}>
                   <CardContent className="p-6 text-center">
-                    <Lightbulb className="w-10 h-10 text-yellow-500 mx-auto mb-4" />
-                    <h3 className="text-lg font-bold text-black mb-2">Un projet spécifique</h3>
+                    <Lightbulb className="w-10 h-10 text-yellow-500 mx-auto mb-4 group-hover:text-white transition-colors" />
+                    <h3 className="text-lg font-bold text-black mb-2 group-hover:text-white transition-colors">Un projet spécifique</h3>
                   </CardContent>
                 </Card>
 
-                <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+                <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                  background: 'white',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'white';
+                  e.currentTarget.style.boxShadow = '';
+                }}>
                   <CardContent className="p-6 text-center">
-                    <Target className="w-10 h-10 text-blue-500 mx-auto mb-4" />
-                    <h3 className="text-lg font-bold text-black mb-2">Une recherche ou étude exploratoire</h3>
+                    <Target className="w-10 h-10 text-blue-500 mx-auto mb-4 group-hover:text-white transition-colors" />
+                    <h3 className="text-lg font-bold text-black mb-2 group-hover:text-white transition-colors">Une recherche ou étude exploratoire</h3>
                   </CardContent>
                 </Card>
 
-                <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+                <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                  background: 'white',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'white';
+                  e.currentTarget.style.boxShadow = '';
+                }}>
                   <CardContent className="p-6 text-center">
-                    <Briefcase className="w-10 h-10 text-purple-500 mx-auto mb-4" />
-                    <h3 className="text-lg font-bold text-black mb-2">Un POC aligné avec vos besoins</h3>
+                    <Briefcase className="w-10 h-10 text-purple-500 mx-auto mb-4 group-hover:text-white transition-colors" />
+                    <h3 className="text-lg font-bold text-black mb-2 group-hover:text-white transition-colors">Un POC aligné avec vos besoins</h3>
                   </CardContent>
                 </Card>
               </div>
@@ -170,31 +236,75 @@ const EngagerEntreprise = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6 text-center">
-                  <Shield className="w-10 h-10 text-green-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-bold text-black mb-2">Sécurisez vos recrutements</h3>
+                  <Shield className="w-10 h-10 text-green-600 mx-auto mb-4 group-hover:text-white transition-colors" />
+                  <h3 className="text-lg font-bold text-black mb-2 group-hover:text-white transition-colors">Sécurisez vos recrutements</h3>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6 text-center">
-                  <Users className="w-10 h-10 text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-bold text-black mb-2">Accédez à des talents motivés et opérationnels</h3>
+                  <Users className="w-10 h-10 text-blue-600 mx-auto mb-4 group-hover:text-white transition-colors" />
+                  <h3 className="text-lg font-bold text-black mb-2 group-hover:text-white transition-colors">Accédez à des talents motivés et opérationnels</h3>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6 text-center">
-                  <TrendingUp className="w-10 h-10 text-purple-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-bold text-black mb-2">Optimisez votre performance RH et votre engagement territorial</h3>
+                  <TrendingUp className="w-10 h-10 text-purple-600 mx-auto mb-4 group-hover:text-white transition-colors" />
+                  <h3 className="text-lg font-bold text-black mb-2 group-hover:text-white transition-colors">Optimisez votre performance RH et votre engagement territorial</h3>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6 text-center">
-                  <Heart className="w-10 h-10 text-red-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-bold text-black mb-2">Renforcez votre stratégie RSE sans complexité administrative</h3>
+                  <Heart className="w-10 h-10 text-red-600 mx-auto mb-4 group-hover:text-white transition-colors" />
+                  <h3 className="text-lg font-bold text-black mb-2 group-hover:text-white transition-colors">Renforcez votre stratégie RSE sans complexité administrative</h3>
                 </CardContent>
               </Card>
             </div>
@@ -209,15 +319,65 @@ const EngagerEntreprise = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {/* Espace pour 6 témoignages vidéos */}
-              {[1, 2, 3, 4, 5, 6].map((index) => (
-                <div
-                  key={index}
-                  className="aspect-video bg-gray-100 border-2 border-gray-300 rounded-lg flex items-center justify-center"
-                >
-                  <span className="text-gray-400 text-sm">Témoignage vidéo {index}</span>
-                </div>
-              ))}
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/fEXVW-0MPhI?start=4"
+                  title="Témoignage 1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/x8_XIuQaji4"
+                  title="Témoignage 2"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/7gsY7SYxick"
+                  title="Témoignage 3"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/uwkJNPBe5Po"
+                  title="Témoignage 4"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/Zk0_r_j2ojc"
+                  title="Témoignage 5"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/HZhL77ILIBs"
+                  title="Témoignage 6"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           </div>
         </section>

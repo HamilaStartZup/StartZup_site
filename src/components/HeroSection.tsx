@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import whatsappImage from "@/assets/WhatsApp2.jpeg";
+import whatsappImage from "@/assets/WhatsApp.jpeg";
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden min-h-[calc(100vh-4rem)] flex items-center py-16 lg:py-24">
+    <section className="relative overflow-hidden min-h-[calc(100vh-4rem)] flex items-center py-8 sm:py-12 md:py-16 lg:py-24">
       {/* Background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -16,12 +16,12 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         <div className="w-full">
           <div className="text-foreground">
-            <h1 className="title-acidgrotesk text-black-no-gradient mb-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl w-full" style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)' }}>
-              Libérons les talents des Quartiers<br /> Prioritaires
-              de la Ville pour façonner<br />
-              le futur du numérique et de l'IA.
+            <h1 className="font-bold mb-4 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px] w-full leading-tight uppercase" style={{ letterSpacing: '0', fontFamily: 'monospace' }}>
+              L'ascenseur social par la tech et l'IA
             </h1>
-            <br />
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-black mb-6 text-center">
+              Créer. Innover. Inclure.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="accent" size="lg" className="gradient-accent text-accent-foreground shadow-hero border-0">
                 <a href="/a-propos">Notre manifeste</a>

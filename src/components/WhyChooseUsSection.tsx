@@ -28,6 +28,7 @@ import ardLogo from "@/assets/ard.png";
 import awsLogo from "@/assets/aws.png";
 import intmLogo from "@/assets/intm.png";
 import odooLogo from "@/assets/odoo.png";
+import photoImage from "@/assets/PHOTO.jpeg";
 
 // Fonction pour mettre le dernier mot en italique
 const italicizeLastWord = (text: string) => {
@@ -51,6 +52,7 @@ const WhyChooseUsSection = () => {
     nom: "",
     email: "",
     telephone: "",
+    ville: "",
     message: "",
   });
 
@@ -61,7 +63,7 @@ const WhyChooseUsSection = () => {
     // Fermer la modal après soumission
     setIsInscriptionModalOpen(false);
     // Réinitialiser le formulaire
-    setFormData({ nom: "", email: "", telephone: "", message: "" });
+    setFormData({ nom: "", email: "", telephone: "", ville: "", message: "" });
   };
 
   const advantages = [
@@ -113,7 +115,7 @@ const WhyChooseUsSection = () => {
     <>
     <section className="pt-0 pb-24 lg:pb-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-8 sm:mb-12">
           {advantages.map((advantage, index) => {
             const IconComponent = advantage.icon;
             const cardClasses = "w-full gradient-card shadow-card hover:shadow-hero transition-all duration-300 hover:-translate-y-1";
@@ -122,13 +124,23 @@ const WhyChooseUsSection = () => {
               <Card key={index} className={`${cardClasses} flex flex-col relative overflow-hidden`} style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
                 <div className="absolute inset-0 bg-white/80 z-0"></div>
                 <div className="relative z-10 flex flex-col h-full">
-                  <CardHeader className="p-6 border-b border-border/50">
-                    <CardTitle className="font-bold text-black" style={{ fontSize: '75px', minHeight: 'auto', textAlign: 'left', letterSpacing: '0.1em', fontFamily: 'monospace' }}>{italicizeLastWord(advantage.title)}</CardTitle>
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="font-bold text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ minHeight: 'auto', textAlign: 'left', letterSpacing: '0', fontFamily: 'monospace' }}>
+                      {advantage.title === "FORMEZ VOUS A LA TECH ET L'IA" ? (
+                        <>
+                          {italicizeLastWord("FORMEZ VOUS")}
+                          <br />
+                          {italicizeLastWord("A LA TECH ET L'IA")}
+                        </>
+                      ) : (
+                        italicizeLastWord(advantage.title)
+                      )}
+                    </CardTitle>
                     {advantage.intro && (
                       <p className="text-black font-semibold mb-3 text-center text-sm mt-2">{italicizeLastWord(advantage.intro)}</p>
                     )}
                   </CardHeader>
-                  <CardContent className="flex flex-col flex-1 p-6">
+                  <CardContent className="flex flex-col flex-1 p-4 sm:p-6">
                     <div className="flex-1">
                       {advantage.description && (
                         <p className="text-black mb-3 text-sm">{italicizeLastWord(advantage.description)}</p>
@@ -186,9 +198,9 @@ const WhyChooseUsSection = () => {
         </div>
 
         {/* Formation IBM */}
-        <div className="mt-8 w-full">
+        <div className="mt-6 sm:mt-8 w-full">
           <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 overflow-hidden flex flex-col" style={{ background: 'linear-gradient(180deg, hsl(320 100% 95%), hsl(280 100% 92%), hsl(60 100% 90%), hsl(30 100% 88%))' }}>
-            <CardContent className="p-5 md:p-6 flex-1 flex flex-row items-center gap-6">
+            <CardContent className="p-5 md:p-6 flex-1 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <div className="flex-1 space-y-3">
                 <p className="text-xs font-semibold text-black uppercase tracking-wide">
                   Des parcours certifiants 100% en <span className="italic">ligne.</span>
@@ -197,7 +209,7 @@ const WhyChooseUsSection = () => {
                   Formez-vous gratuitement<br />
                   avec IBM Skills <span className="italic">Build</span>
                 </h3>
-                <div className="space-y-2 pt-3 border-t border-black/20">
+                <div className="space-y-2 pt-3">
                   <div className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-black font-medium text-sm">
@@ -222,28 +234,28 @@ const WhyChooseUsSection = () => {
         </div>
 
         {/* Deux nouvelles cartes */}
-        <div className="grid md:grid-cols-2 gap-6 mb-12 mt-12">
-          <div className="border border-border/50 rounded-lg p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-square relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12 mt-8 sm:mt-12">
+          <div className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
             <div className="absolute inset-0 bg-white/80 z-0"></div>
             <div className="relative z-10 flex flex-col h-full">
-              <h4 className="font-bold mb-3 text-black" style={{ fontSize: '75px', textAlign: 'left', letterSpacing: '0.1em', fontFamily: 'monospace' }}>{italicizeLastWord("NOS FILIÉRES DE FORMATION")}</h4>
+              <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'left', letterSpacing: '0', fontFamily: 'monospace' }}>{italicizeLastWord("FORMEZ VOS COLLABORATEURS À L'IA")}</h4>
               <p className="mb-0 text-black text-justify"></p>
-              <div className="mt-8 text-center">
+              <div className="mt-auto text-center">
                 <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
-                  <a href="#">Découvrir</a>
+                  <a href="/formation">Découvrir</a>
                 </Button>
               </div>
             </div>
           </div>
 
-          <div className="border border-border/50 rounded-lg p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-square relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
+          <div className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
             <div className="absolute inset-0 bg-white/80 z-0"></div>
             <div className="relative z-10 flex flex-col h-full">
-              <h4 className="font-bold mb-3 text-black" style={{ fontSize: '75px', textAlign: 'left', letterSpacing: '0.1em', fontFamily: 'monospace' }}>{italicizeLastWord("DONNEZ VIE A VOS IDEES GRACE À UN POC")}</h4>
+              <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'left', letterSpacing: '0', fontFamily: 'monospace' }}>{italicizeLastWord("LE BOARD START-ZUP")}</h4>
               <p className="mb-0 text-black text-justify"></p>
-              <div className="mt-8 text-center">
+              <div className="mt-auto text-center">
                 <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
-                  <a href="/poc">Découvrir</a>
+                  <a href="/board">Découvrir</a>
                 </Button>
               </div>
             </div>
@@ -253,32 +265,15 @@ const WhyChooseUsSection = () => {
         {/* Section Formation Entreprise */}
         <div className="mt-8 w-full">
           <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(320 100% 95%), hsl(280 100% 92%), hsl(60 100% 90%), hsl(30 100% 88%))' }}>
-            <CardContent className="p-5 md:p-8 flex flex-row items-center gap-8">
+            <CardContent className="p-5 md:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
               <div className="flex-1">
-                <h3 className="text-2xl md:text-3xl font-bold text-black mb-4">
-                  Vous souhaitez former les collaborateurs de votre entreprise à l'IA ?
-                </h3>
-                <p className="text-lg font-semibold text-black mb-4">
-                  Des formations adaptées à tous les niveaux :
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start space-x-3">
-                    <span className="text-black mt-1">•</span>
-                    <span className="text-black">Comprendre l'IA générative et décisionnel</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <span className="text-black mt-1">•</span>
-                    <span className="text-black">Utiliser les IA métiers au quotidien</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <span className="text-black mt-1">•</span>
-                    <span className="text-black">Créer des prompts professionnels</span>
-                  </li>
-                  <li className="flex items-start space-x-3">
-                    <span className="text-black mt-1">•</span>
-                    <span className="text-black">Concevoir une automatisation de A à Z</span>
-                  </li>
-                </ul>
+                <div className="mb-4">
+                  <img 
+                    src={photoImage} 
+                    alt="Formation entreprise IA" 
+                    className="w-full h-auto rounded-lg object-cover"
+                  />
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -289,7 +284,7 @@ const WhyChooseUsSection = () => {
 
     {/* Carousel Partenaires */}
     <section className="pt-0 pb-24 lg:pb-32 bg-white">
-      <div className="mt-12 px-4 sm:px-6 lg:px-8">
+      <div className="mt-0 px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-white shadow-card p-8 lg:p-10 border border-border/50">
           <div className="text-center mb-8">
             <p className="text-sm uppercase tracking-widest text-gray-500">Nos partenaires</p>
@@ -345,8 +340,65 @@ const WhyChooseUsSection = () => {
             </p>
           </div>
 
+          {/* Information sur les implantations */}
+          <div className="mt-8 p-6 rounded-lg border-2" style={{ background: 'linear-gradient(135deg, hsl(59 130 246 / 0.1), hsl(139 92 246 / 0.1))', borderColor: 'hsl(251 146 60 / 0.3)' }}>
+            <div className="flex items-start gap-3">
+              <div className="flex-shrink-0 w-2 h-2 rounded-full mt-2" style={{ background: 'hsl(251 146 60)' }}></div>
+              <div>
+                <p className="text-black leading-relaxed font-semibold mb-2">
+                  Notre programme est implanté dans trois zones :
+                </p>
+                <div className="flex flex-wrap gap-3 mt-3">
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold text-black bg-white border-2" style={{ borderColor: 'hsl(251 146 60)' }}>
+                    Mantes-la-Jolie (78)
+                  </span>
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold text-black bg-white border-2" style={{ borderColor: 'hsl(251 146 60)' }}>
+                    Trappes (78)
+                  </span>
+                  <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold text-black bg-white border-2" style={{ borderColor: 'hsl(251 146 60)' }}>
+                    Paris 19 ème (75)
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Espace pour les vidéos - 3 vignettes */}
+          <div>
+            <h3 className="text-xl font-bold text-black mb-4">Découvrez Start-Zup en vidéo</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/fEXVW-0MPhI?start=4"
+                  title="Formation Start Zup 1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/7gsY7SYxick?start=1"
+                  title="Formation Start Zup 2"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/uwkJNPBe5Po?start=1"
+                  title="Formation Start Zup 3"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
           {/* Formulaire */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="nom" className="block text-sm font-medium text-black mb-2">
@@ -375,18 +427,34 @@ const WhyChooseUsSection = () => {
                 />
               </div>
             </div>
-            <div>
-              <label htmlFor="telephone" className="block text-sm font-medium text-black mb-2">
-                Téléphone *
-              </label>
-              <Input
-                id="telephone"
-                type="tel"
-                required
-                value={formData.telephone}
-                onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-                className="w-full"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="telephone" className="block text-sm font-medium text-black mb-2">
+                  Téléphone *
+                </label>
+                <Input
+                  id="telephone"
+                  type="tel"
+                  required
+                  value={formData.telephone}
+                  onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <label htmlFor="ville" className="block text-sm font-medium text-black mb-2">
+                  Ville *
+                </label>
+                <Input
+                  id="ville"
+                  type="text"
+                  required
+                  value={formData.ville}
+                  onChange={(e) => setFormData({ ...formData, ville: e.target.value })}
+                  className="w-full"
+                  placeholder="Votre ville"
+                />
+              </div>
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
@@ -407,21 +475,6 @@ const WhyChooseUsSection = () => {
               </Button>
             </div>
           </form>
-
-          {/* Espace pour les vidéos - 6 vignettes */}
-          <div className="mt-8">
-            <h3 className="text-xl font-bold text-black mb-4">Découvrez nos formations en vidéo</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[1, 2, 3, 4, 5, 6].map((index) => (
-                <div
-                  key={index}
-                  className="aspect-video bg-gray-100 border border-gray-300 rounded-lg flex items-center justify-center"
-                >
-                  <span className="text-gray-400 text-sm">Vidéo {index}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </DialogContent>
     </Dialog>

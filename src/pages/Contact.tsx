@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 
 const Contact = () => {
   const [company, setCompany] = useState("");
@@ -15,12 +15,42 @@ const Contact = () => {
   const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   
+  // Captcha state
+  const [captchaNum1, setCaptchaNum1] = useState(0);
+  const [captchaNum2, setCaptchaNum2] = useState(0);
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
+  const [captchaError, setCaptchaError] = useState<string | null>(null);
+  
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    setCaptchaNum1(num1);
+    setCaptchaNum2(num2);
+    setCaptchaAnswer("");
+    setCaptchaError(null);
+  };
+  
+  // Generate captcha on component mount
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+  
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitting(true);
     setSubmitSuccess(null);
     setSubmitError(null);
+    setCaptchaError(null);
+    
+    // Validate captcha
+    const correctAnswer = captchaNum1 + captchaNum2;
+    if (parseInt(captchaAnswer) !== correctAnswer) {
+      setCaptchaError("La réponse au calcul est incorrecte. Veuillez réessayer.");
+      setSubmitting(false);
+      generateCaptcha();
+      return;
+    }
 
     try {
       const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY as string | undefined;
@@ -141,6 +171,8 @@ const Contact = () => {
       setEmail("");
       setPhone("");
       setMessage("");
+      setCaptchaAnswer("");
+      generateCaptcha();
     } catch (err: any) {
       setSubmitError(err?.message || "Une erreur est survenue.");
     } finally {
@@ -155,24 +187,11 @@ const Contact = () => {
         <section className="py-16 lg:py-24 gradient-hero">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="title-acidgrotesk text-black-no-gradient -mb-24" style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)' }}>
-              Contactez nos experts dès aujourd'hui
+              Contactez nous dès aujourd'hui
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-black max-w-3xl -mb-8 sm:-mb-16 mx-auto text-center px-4">
-              Un rendez-vous suffit pour comprendre vos besoins et trouver la solution adaptée.
-            </p>
             
             {/* Section d'espacement comme les autres pages */}
             <div className="relative -mb-8 sm:-mb-16 min-h-[80px] sm:min-h-[100px] md:min-h-[200px]">
-            </div>
-            <div className="mt-4 sm:mt-8">
-              <Button 
-                asChild
-                variant="accent" 
-                size="lg" 
-                className="gradient-accent text-accent-foreground shadow-hero w-full sm:w-auto"
-              >
-                <a href="#contact-form">Prendre rendez-vous en ligne</a>
-              </Button>
             </div>
           </div>
         </section>
@@ -184,25 +203,59 @@ const Contact = () => {
               <h2 className="text-2xl lg:text-3xl font-bold mb-6 font-inter text-black" style={{ fontSize: '2rem', minHeight: 'auto' }}>Formulaire de contact</h2>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black">Nom de l'entreprise</label>
-                  <Input placeholder="Votre entreprise" required className="text-black placeholder:text-gray-500" value={company} onChange={(e) => setCompany(e.target.value)} />
+                  <label className="block mb-2 text-sm font-medium text-black">Nom de votre organisation</label>
+                  <Input placeholder="Votre organisation" required className="text-black placeholder:text-gray-500" value={company} onChange={(e) => setCompany(e.target.value)} />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black">Nom & Prénom</label>
+                  <label className="block mb-2 text-sm font-medium text-black">Nom & Prénom <span className="text-red-500">*</span></label>
                   <Input placeholder="Votre nom complet" required className="text-black placeholder:text-gray-500" value={fullName} onChange={(e) => setFullName(e.target.value)} />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black">Email</label>
+                  <label className="block mb-2 text-sm font-medium text-black">Email <span className="text-red-500">*</span></label>
                   <Input type="email" placeholder="votre@email.com" required className="text-black placeholder:text-gray-500" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black">Téléphone</label>
-                  <Input type="tel" placeholder="Votre numéro" className="text-black placeholder:text-gray-500" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                  <label className="block mb-2 text-sm font-medium text-black">Téléphone <span className="text-red-500">*</span></label>
+                  <Input type="tel" placeholder="Votre numéro" required className="text-black placeholder:text-gray-500" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 </div>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-black">Message (optionnel)</label>
                   <Textarea placeholder="Décrivez votre besoin" className="min-h-[140px] text-black placeholder:text-gray-500" value={message} onChange={(e) => setMessage(e.target.value)} />
                 </div>
+                
+                {/* Captcha */}
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <label className="block mb-2 text-sm font-medium text-black">
+                    Vérification de sécurité <span className="text-red-500">*</span>
+                  </label>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 bg-white px-4 py-2 rounded border border-gray-300">
+                      <span className="text-lg font-bold text-black">{captchaNum1}</span>
+                      <span className="text-black">+</span>
+                      <span className="text-lg font-bold text-black">{captchaNum2}</span>
+                      <span className="text-black">=</span>
+                    </div>
+                    <Input
+                      type="number"
+                      placeholder="?"
+                      required
+                      className="w-24 text-black placeholder:text-gray-500"
+                      value={captchaAnswer}
+                      onChange={(e) => setCaptchaAnswer(e.target.value)}
+                    />
+                    <button
+                      type="button"
+                      onClick={generateCaptcha}
+                      className="text-sm text-blue-600 hover:text-blue-800 underline"
+                    >
+                      Nouveau calcul
+                    </button>
+                  </div>
+                  {captchaError && (
+                    <p className="text-red-600 text-sm mt-2">{captchaError}</p>
+                  )}
+                </div>
+                
                 {submitSuccess && (
                   <p className="text-green-600 text-sm">{submitSuccess}</p>
                 )}

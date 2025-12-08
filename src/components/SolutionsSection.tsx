@@ -41,9 +41,9 @@ const SolutionsSection = () => {
           link: "/campus-partenaire"
         },
         {
-          title: "LE BOARD START-ZUP",
+          title: "DONNEZ VIE A VOS IDEES GRACE À UN POC",
           description: "",
-          link: "/board"
+          link: "/poc"
         }
       ]
     },
@@ -95,14 +95,14 @@ const SolutionsSection = () => {
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
                 {solutions[0].subSolutions.map((subSolution, index) => (
-                  <div key={index} className="border border-border/50 rounded-lg p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-square relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
+                  <div key={index} className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
                     <div className="absolute inset-0 bg-white/80 z-0"></div>
                     <div className="relative z-10 flex flex-col h-full">
-                      <h4 className="font-bold mb-3 text-black" style={{ fontSize: '75px', textAlign: 'left', letterSpacing: '0.1em', fontFamily: 'monospace' }}>{italicizeLastWord(subSolution.title)}</h4>
+                      <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'left', letterSpacing: '0', fontFamily: 'monospace' }}>{italicizeLastWord(subSolution.title)}</h4>
                       {subSolution.description && (
                         <p className="mb-0 text-black text-justify">{italicizeLastWord(subSolution.description)}</p>
                       )}
-                      <div className="mt-8 text-center">
+                      <div className="mt-auto text-center">
                         <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
                           <a href={subSolution.link}>Découvrir</a>
                         </Button>

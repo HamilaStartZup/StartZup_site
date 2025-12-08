@@ -49,28 +49,37 @@ const Expertise = () => {
             
             <div className="max-w-5xl mx-auto">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="grid w-full grid-cols-3 mb-8" style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)' }}>
+                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-0 mb-8" style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)' }}>
                   <TabsTrigger 
                     value="solutions-ia" 
-                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-black text-xs sm:text-sm"
+                    className="text-black text-xs sm:text-sm transition-all"
+                    style={{ 
+                      background: activeTab === "solutions-ia" ? 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' : 'transparent'
+                    }}
                   >
                     Solutions IA
                   </TabsTrigger>
                   <TabsTrigger 
                     value="support-it" 
-                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-black text-xs sm:text-sm"
+                    className="text-black text-xs sm:text-sm transition-all"
+                    style={{ 
+                      background: activeTab === "support-it" ? 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' : 'transparent'
+                    }}
                   >
                     Support IT & Cybersécurité
                   </TabsTrigger>
                   <TabsTrigger 
                     value="poc" 
-                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-black text-xs sm:text-sm"
+                    className="text-black text-xs sm:text-sm transition-all"
+                    style={{ 
+                      background: activeTab === "poc" ? 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' : 'transparent'
+                    }}
                   >
                     Création de POC
                   </TabsTrigger>
                 </TabsList>
 
-                <TabsContent value="solutions-ia" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)' }}>
+                <TabsContent value="solutions-ia" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' }}>
                   <h3 className="text-xl md:text-2xl font-bold mb-6 text-black">Solutions IA et processus automatisés</h3>
                   <p className="text-black mb-6 text-justify">
                     L'intégration de solutions d'intelligence artificielle et de processus automatisés est devenue un levier essentiel pour les entreprises qui souhaitent gagner en efficacité, réduire leurs coûts opérationnels et améliorer leur qualité de service.
@@ -227,7 +236,7 @@ const Expertise = () => {
                   </div>
                 </TabsContent>
 
-                <TabsContent value="support-it" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)' }}>
+                <TabsContent value="support-it" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' }}>
                   <h3 className="text-xl md:text-2xl font-bold mb-6 text-black">Support IT et Cybersécurité</h3>
                   <p className="text-black mb-6 text-justify">
                     Une infrastructure maîtrisée, une sécurité renforcée : nous accompagnons votre organisation vers l'excellence opérationnelle.
@@ -298,7 +307,7 @@ const Expertise = () => {
                   </div>
                 </TabsContent>
 
-                <TabsContent value="poc" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, #dbeafe, #bfdbfe)' }}>
+                <TabsContent value="poc" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' }}>
                   <h3 className="text-xl md:text-2xl font-bold mb-6 text-black">Création de POC (entreprises + entrepreneurs et porteurs de projets)</h3>
                   <p className="text-black mb-6 text-justify">
                     Vous êtes porteur de projet, entrepreneur ou une entreprise ? Donnez vie à vos idées grâce à un POC.
