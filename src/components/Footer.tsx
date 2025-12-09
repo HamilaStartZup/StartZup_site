@@ -1,12 +1,11 @@
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   const solutions = [
-    { name: "Expertise", href: "/expertise", color: "#0a84ff" },
-    { name: "Cybersécurité", href: "/cybersecurite", color: "#ff2d55" },
-    { name: "Support IT & Infogérance", href: "/support-it", color: "#22c55e" },
-    { name: "VR & 3D", href: "/vr-3d", color: "#bf5af2" },
+    { name: "Nos offres", href: "/expertise", color: "#0a84ff" },
+    { name: "Engager votre entreprise", href: "/engager-entreprise", color: "#0a84ff" },
+    { name: "Campus partenaire", href: "/campus-partenaire", color: "#0a84ff" },
   ];
 
   return (
@@ -16,18 +15,10 @@ const Footer = () => {
           {/* Logo and description */}
           <div className="lg:col-span-2">
             <div className="text-2xl font-bold mb-4" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Start-Zup</div>
-            <p className="text-gray-300 mb-6 max-w-md">
-              Transformez vos processus avec l'IA : gagnez du temps, automatisez vos tâches et 
-              formez vos équipes aux outils de demain.
-            </p>
             <div className="space-y-2">
               <div className="flex items-center text-gray-300">
                 <Mail className="h-4 w-4 mr-2" />
-                <span>contact@start-zup.fr</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <Phone className="h-4 w-4 mr-2" />
-                <span>+33 1 23 45 67 89</span>
+                <span>contact@start-zup.com</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <MapPin className="h-4 w-4 mr-2" />
@@ -38,7 +29,7 @@ const Footer = () => {
 
           {/* Solutions */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Nos solutions</h3>
+            <h3 className="font-semibold text-white mb-4">Nos offres</h3>
             <ul className="space-y-2">
               {solutions.map((solution) => (
                 <li key={solution.name}>
@@ -64,7 +55,12 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a href="/a-propos" className="text-gray-300 hover:text-accent transition-colors">
-                  À propos
+                  Notre manifeste
+                </a>
+              </li>
+              <li>
+                <a href="/board" className="text-gray-300 hover:text-accent transition-colors">
+                  Board
                 </a>
               </li>
               <li>
@@ -74,12 +70,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="/mentions-legales" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
-                  Mentions légales
-                </a>
-              </li>
-              <li>
-                <a href="/politique-rgpd" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
-                  Politique RGPD
+                  RGPD / Mentions légales
                 </a>
               </li>
             </ul>
@@ -94,10 +85,7 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="/mentions-legales" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
-              Mentions légales
-            </a>
-            <a href="/politique-rgpd" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
-              RGPD
+              RGPD / Mentions légales
             </a>
           </div>
         </div>

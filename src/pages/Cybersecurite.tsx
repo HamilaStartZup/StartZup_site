@@ -56,7 +56,7 @@ const Cybersecurite = () => {
             <h1 className="title-acidgrotesk text-black-no-gradient -mb-24" style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)' }}>
               Cybersécurité 
                 </h1>
-            <p className="text-sm sm:text-base md:text-lg text-black max-w-3xl -mb-8 sm:-mb-16 mx-auto text-center px-4">
+            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-6 text-center">
                   Surveillance 24/7, détection en temps réel et accompagnement humain pour sécuriser vos données sans exploser votre budget.
                 </p>
             {/* Section d'espacement */}

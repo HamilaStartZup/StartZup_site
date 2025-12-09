@@ -21,7 +21,7 @@ const Expertise = () => {
             </h1>
             </div>
             
-            <p className="text-sm sm:text-base md:text-lg text-black max-w-3xl -mb-8 sm:-mb-16 mx-auto text-center px-4">
+            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-6 text-center">
             Développez vos compétences et prenez une longueur d'avance<br/>
             L'IA n'est pas une menace. C'est une opportunité.
             </p>
@@ -36,16 +36,16 @@ const Expertise = () => {
                 size="lg" 
                 className="gradient-accent text-accent-foreground shadow-hero w-full sm:w-auto"
               >
-                <a href="/contact?service=expertise">Prendre rendez-vous</a>
+                <a href="/contact?service=expertise">Contact</a>
               </Button>
             </div>
           </div>
         </section>
 
-        {/* L'IA, une compétence devenue incontournable */}
+        {/* L'IA et la Cyber, des compétences devenues incontournables */}
         <section className="py-12 lg:py-16 bg-white reveal-left">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 font-inter text-center px-4 text-black" style={{ fontSize: '2rem', minHeight: 'auto' }}>L'IA, une compétence devenue incontournable</h2>
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 font-inter text-center px-4 text-black" style={{ fontSize: '2rem', minHeight: 'auto' }}>L'IA et la Cyber, des compétences devenues incontournables</h2>
             
             <div className="max-w-5xl mx-auto">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -255,7 +255,7 @@ const Expertise = () => {
                         </li>
                       </ul>
                       <p className="text-black mt-4 text-justify font-semibold">
-                        Notre objectif : vous garantir une informatique simple, performante et sécurisée.
+                        <strong>Notre objectif : Vous garantir une informatique simple, performante et sécurisée.</strong>
                       </p>
                     </div>
 
@@ -280,8 +280,8 @@ const Expertise = () => {
                           <span>Rapports clairs et accompagnement humain</span>
                         </li>
                       </ul>
-                      <p className="text-black text-justify">
-                        Vous protégez vos données sans complexité ni budget démesuré.
+                      <p className="text-black mt-4 text-justify font-semibold">
+                        <strong>Notre objectif : Protégez vos données sans complexité ni budget démesuré.</strong>
                       </p>
                     </div>
               </div>

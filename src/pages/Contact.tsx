@@ -197,10 +197,10 @@ const Contact = () => {
         </section>
 
         <section className="py-12 lg:py-16 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-12 lg:grid-cols-2">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
             
-            <div id="contact-form">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-6 font-inter text-black" style={{ fontSize: '2rem', minHeight: 'auto' }}>Formulaire de contact</h2>
+            <div id="contact-form" className="w-full max-w-2xl">
+              <h2 className="text-2xl lg:text-3xl font-bold mb-6 font-inter text-black text-center" style={{ fontSize: '2rem', minHeight: 'auto' }}>Formulaire de contact</h2>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label className="block mb-2 text-sm font-medium text-black">Nom de votre organisation</label>

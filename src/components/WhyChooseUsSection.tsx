@@ -28,22 +28,11 @@ import ardLogo from "@/assets/ard.png";
 import awsLogo from "@/assets/aws.png";
 import intmLogo from "@/assets/intm.png";
 import odooLogo from "@/assets/odoo.png";
-import photoImage from "@/assets/PHOTO.jpeg";
+import photoImage from "@/assets/WhatsApp2.jpeg";
 
-// Fonction pour mettre le dernier mot en italique
+// Fonction pour retourner le texte sans modification
 const italicizeLastWord = (text: string) => {
-  if (!text) return text;
-  const words = text.trim().split(/\s+/);
-  if (words.length === 0) return text;
-  const lastWord = words[words.length - 1];
-  const restWords = words.slice(0, -1).join(' ');
-  return restWords ? (
-    <>
-      {restWords} <span className="italic">{lastWord}</span>
-    </>
-  ) : (
-    <span className="italic">{lastWord}</span>
-  );
+  return text;
 };
 
 const WhyChooseUsSection = () => {
@@ -69,7 +58,7 @@ const WhyChooseUsSection = () => {
   const advantages = [
     {
       icon: Target,
-      title: "FORMEZ VOUS A LA TECH ET L'IA",
+      title: "FORMEZ VOUS À LA TECH ET L'IA",
       intro: "",
       description: "",
       expansion: "",
@@ -125,16 +114,8 @@ const WhyChooseUsSection = () => {
                 <div className="absolute inset-0 bg-white/80 z-0"></div>
                 <div className="relative z-10 flex flex-col h-full">
                   <CardHeader className="p-4 sm:p-6">
-                    <CardTitle className="font-bold text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ minHeight: 'auto', textAlign: 'left', letterSpacing: '0', fontFamily: 'monospace' }}>
-                      {advantage.title === "FORMEZ VOUS A LA TECH ET L'IA" ? (
-                        <>
-                          {italicizeLastWord("FORMEZ VOUS")}
-                          <br />
-                          {italicizeLastWord("A LA TECH ET L'IA")}
-                        </>
-                      ) : (
-                        italicizeLastWord(advantage.title)
-                      )}
+                    <CardTitle className="font-bold text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ minHeight: 'auto', textAlign: 'center', letterSpacing: '0', wordSpacing: '-0.1em', fontFamily: 'monospace' }}>
+                      {italicizeLastWord(advantage.title)}
                     </CardTitle>
                     {advantage.intro && (
                       <p className="text-black font-semibold mb-3 text-center text-sm mt-2">{italicizeLastWord(advantage.intro)}</p>
@@ -203,30 +184,30 @@ const WhyChooseUsSection = () => {
             <CardContent className="p-5 md:p-6 flex-1 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
               <div className="flex-1 space-y-3">
                 <p className="text-xs font-semibold text-black uppercase tracking-wide">
-                  Des parcours certifiants 100% en <span className="italic">ligne.</span>
+                  Des parcours certifiants 100% en ligne.
                 </p>
                 <h3 className="text-xl md:text-2xl font-bold text-black">
                   Formez-vous gratuitement<br />
-                  avec IBM Skills <span className="italic">Build</span>
+                  avec IBM Skills Build
                 </h3>
                 <div className="space-y-2 pt-3">
                   <div className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-black font-medium text-sm">
-                      <span className="font-bold">Hardskills</span> : Les essentiels de la <span className="italic">Tech</span>
+                      <span className="font-bold">Hardskills</span> : Les essentiels de la Tech
                     </p>
                   </div>
                   <div className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-black font-medium text-sm">
-                      <span className="font-bold">Soft skills</span> : Compétences professionnelles et savoir <span className="italic">être</span>
+                      <span className="font-bold">Soft skills</span> : Compétences professionnelles et savoir être
                     </p>
                   </div>
                 </div>
               </div>
               <div className="flex-shrink-0">
                 <Button asChild variant="accent" size="default" className="gradient-accent text-accent-foreground shadow-hero">
-                  <a href="/contact">Accéder à notre programme !</a>
+                  <a href="https://skills.yourlearning.ibm.com/" target="_blank" rel="noopener noreferrer">Accéder à notre programme !</a>
                 </Button>
               </div>
             </CardContent>
@@ -238,9 +219,9 @@ const WhyChooseUsSection = () => {
           <div className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
             <div className="absolute inset-0 bg-white/80 z-0"></div>
             <div className="relative z-10 flex flex-col h-full">
-              <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'left', letterSpacing: '0', fontFamily: 'monospace' }}>{italicizeLastWord("FORMEZ VOS COLLABORATEURS À L'IA")}</h4>
+              <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'center', letterSpacing: '0', wordSpacing: '-0.1em', fontFamily: 'monospace' }}>{italicizeLastWord("FORMEZ VOS COLLABORATEURS À L'IA")}</h4>
               <p className="mb-0 text-black text-justify"></p>
-              <div className="mt-auto text-center">
+              <div className="mt-16 text-center">
                 <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
                   <a href="/formation">Découvrir</a>
                 </Button>
@@ -251,9 +232,9 @@ const WhyChooseUsSection = () => {
           <div className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
             <div className="absolute inset-0 bg-white/80 z-0"></div>
             <div className="relative z-10 flex flex-col h-full">
-              <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'left', letterSpacing: '0', fontFamily: 'monospace' }}>{italicizeLastWord("LE BOARD START-ZUP")}</h4>
+              <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'center', letterSpacing: '0', wordSpacing: '-0.1em', fontFamily: 'monospace' }}>{italicizeLastWord("LE BOARD")}<br />{italicizeLastWord("START-ZUP")}</h4>
               <p className="mb-0 text-black text-justify"></p>
-              <div className="mt-auto text-center">
+              <div className="mt-28 text-center">
                 <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
                   <a href="/board">Découvrir</a>
                 </Button>
@@ -273,6 +254,9 @@ const WhyChooseUsSection = () => {
                     alt="Formation entreprise IA" 
                     className="w-full h-auto rounded-lg object-cover"
                   />
+                  <p className="text-sm text-gray-600 text-left mt-2">
+                    Citizen days - Rencontre L'Oréal / Start-Zup - Session 2025
+                  </p>
                 </div>
               </div>
             </CardContent>

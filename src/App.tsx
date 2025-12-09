@@ -15,6 +15,7 @@ import SupportIT from "./pages/SupportIT";
 import VR3D from "./pages/VR3D";
 import APropos from "./pages/APropos";
 import Contact from "./pages/Contact";
+import MentionsLegales from "./pages/MentionsLegales";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/vr-3d" element={<VR3D />} />
           <Route path="/a-propos" element={<APropos />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

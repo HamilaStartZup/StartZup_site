@@ -2,20 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Brain, GraduationCap, Shield, Headphones, Gamepad2 } from "lucide-react";
 
-// Fonction pour mettre le dernier mot en italique
+// Fonction pour retourner le texte sans modification
 const italicizeLastWord = (text: string) => {
-  if (!text) return text;
-  const words = text.trim().split(/\s+/);
-  if (words.length === 0) return text;
-  const lastWord = words[words.length - 1];
-  const restWords = words.slice(0, -1).join(' ');
-  return restWords ? (
-    <>
-      {restWords} <span className="italic">{lastWord}</span>
-    </>
-  ) : (
-    <span className="italic">{lastWord}</span>
-  );
+  return text;
 };
 
 const SolutionsSection = () => {
@@ -26,7 +15,7 @@ const SolutionsSection = () => {
       description: "Solutions d'intelligence artificielle sur mesure",
       subSolutions: [
         {
-          title: "ENGAGER VOTRE ENTREPRISE",
+          title: "ENGAGEZ VOTRE ENTREPRISE",
           description: "",
           link: "/engager-entreprise"
         },
@@ -41,7 +30,7 @@ const SolutionsSection = () => {
           link: "/campus-partenaire"
         },
         {
-          title: "DONNEZ VIE A VOS IDEES GRACE À UN POC",
+          title: "DONNEZ VIE À VOS IDÉES GRÂCE À UN POC",
           description: "",
           link: "/poc"
         }
@@ -98,14 +87,14 @@ const SolutionsSection = () => {
                   <div key={index} className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
                     <div className="absolute inset-0 bg-white/80 z-0"></div>
                     <div className="relative z-10 flex flex-col h-full">
-                      <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'left', letterSpacing: '0', fontFamily: 'monospace' }}>{italicizeLastWord(subSolution.title)}</h4>
+                      <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'center', letterSpacing: '0', wordSpacing: '-0.1em', fontFamily: 'monospace' }}>{italicizeLastWord(subSolution.title)}</h4>
                       {subSolution.description && (
                         <p className="mb-0 text-black text-justify">{italicizeLastWord(subSolution.description)}</p>
                       )}
-                      <div className="mt-auto text-center">
+                      <div className={subSolution.title === "CAMPUS PARTENAIRE" || subSolution.title === "ENGAGEZ VOTRE ENTREPRISE" || subSolution.title === "START-ZUP EXPERTISE" ? "mt-20 text-center" : "mt-8 text-center"}>
                         <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
-                          <a href={subSolution.link}>Découvrir</a>
-                        </Button>
+                      <a href={subSolution.link}>Découvrir</a>
+                    </Button>
                       </div>
                     </div>
                   </div>

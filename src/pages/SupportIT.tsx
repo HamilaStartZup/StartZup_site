@@ -121,8 +121,8 @@ const SupportIT = () => {
               Support informatique & infogérance
             </h1>
             <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-black mb-6 text-left">
-                Notre expertise en réseaux, serveurs et support fait la différence : performance, sécurité et fiabilité au service de votre développement.<br/><br/><br/>
+              <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-6 text-center">
+                Notre expertise en réseaux, serveurs et support fait la différence : performance, sécurité et fiabilité au service de votre développement.
               </p>
             </div>
             <Button 

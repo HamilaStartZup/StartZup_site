@@ -154,6 +154,11 @@ All colors MUST be HSL.
     font-variation-settings: "opsz" 32;
   }
 
+  h1, h2, h3, h4 {
+    letter-spacing: normal;
+    word-spacing: normal;
+  }
+
   /* Custom utility classes */
   .gradient-hero {
     background: var(--gradient-hero);

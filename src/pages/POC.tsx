@@ -12,9 +12,8 @@ const POC = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="py-16 lg:py-24 gradient-hero reveal relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
-          <div className="absolute inset-0 bg-white/80 z-0"></div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <section className="py-16 lg:py-24 gradient-hero reveal">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="relative flex items-center justify-center -mb-4">
               <h1 className="title-acidgrotesk text-black-no-gradient -mb-24 text-3xl sm:text-4xl md:text-6xl lg:text-7xl" style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)' }}>
                 Donnez vie à vos idées grâce à un POC.
@@ -31,8 +30,8 @@ const POC = () => {
         <section className="py-16 lg:py-20 bg-white reveal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-6">
-              <p className="text-lg md:text-xl text-black leading-relaxed text-center">
-                Chez Start Zup, nous vous aidons à transformer votre concept en un POC solide, pertinent et opérationnel.
+              <p className="text-lg md:text-2xl text-black leading-relaxed text-center">
+                Chez Start-Zup, nous vous aidons à transformer votre concept en un POC solide, pertinent et opérationnel.
               </p>
             </div>
           </div>
@@ -46,31 +45,75 @@ const POC = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-black mb-2">Un accompagnement personnalisé</h3>
-                  <p className="text-gray-700">Pour clarifier votre besoin et structurer votre idée.</p>
+                  <h3 className="text-lg md:text-2xl font-bold text-black mb-2 group-hover:text-white transition-colors">Un accompagnement personnalisé</h3>
+                  <p className="text-lg md:text-2xl text-black group-hover:text-white/90 transition-colors">Pour clarifier votre besoin et structurer votre idée.</p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-black mb-2">Une équipe de talents formés</h3>
-                  <p className="text-gray-700">Data, IA, développement, cybersécurité pour concevoir un POC qui répond à vos enjeux.</p>
+                  <h3 className="text-lg md:text-2xl font-bold text-black mb-2 group-hover:text-white transition-colors">Une équipe de talents formés</h3>
+                  <p className="text-lg md:text-2xl text-black group-hover:text-white/90 transition-colors">Data, IA, développement, cybersécurité pour concevoir un POC qui répond à vos enjeux.</p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-black mb-2">Un suivi méthodologique</h3>
-                  <p className="text-gray-700">Pour vous guider à chaque étape, de l'idéation à la mise en test.</p>
+                  <h3 className="text-lg md:text-2xl font-bold text-black mb-2 group-hover:text-white transition-colors">Un suivi méthodologique</h3>
+                  <p className="text-lg md:text-2xl text-black group-hover:text-white/90 transition-colors">Pour vous guider à chaque étape, de l'idéation à la mise en test.</p>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white">
+              <Card className="border-2 hover:shadow-xl transition-all duration-300 bg-white group hover:border-transparent" style={{ 
+                background: 'white',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, hsl(350 86% 64%), hsl(18 95% 58%))';
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(251, 146, 60, 0.5), 0 0 40px rgba(251, 146, 60, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'white';
+                e.currentTarget.style.boxShadow = '';
+              }}>
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-black mb-2">Des conseils stratégiques</h3>
-                  <p className="text-gray-700">Pour analyser les résultats, ajuster votre projet et préparer la suite (MVP, développement complet, présentation à des investisseurs, etc.).</p>
+                  <h3 className="text-lg md:text-2xl font-bold text-black mb-2 group-hover:text-white transition-colors">Des conseils stratégiques</h3>
+                  <p className="text-lg md:text-2xl text-black group-hover:text-white/90 transition-colors">Pour analyser les résultats, ajuster votre projet et préparer la suite (MVP, développement complet, présentation à des investisseurs, etc.).</p>
                 </CardContent>
               </Card>
             </div>
@@ -101,7 +144,7 @@ const POC = () => {
         {/* CTA final */}
         <section className="py-16 lg:py-20 bg-slate-50 text-center reveal">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-lg md:text-xl text-black leading-relaxed mb-8 max-w-3xl mx-auto">
+            <p className="text-lg md:text-2xl text-black leading-relaxed mb-8 max-w-3xl mx-auto">
               Prêt à concrétiser votre idée ? Nous sommes là pour vous accompagner.
             </p>
             <Button 

@@ -17,7 +17,7 @@ const VR3D = () => {
               VR & 3D
             </h1>
             
-            <p className="text-sm sm:text-base md:text-lg text-black max-w-3xl -mb-8 sm:-mb-16 mx-auto text-center px-4">
+            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-6 text-center">
               Visites immersives, maquettes interactives et animations vidéo : mettez en valeur vos projets comme jamais.
             </p>
             

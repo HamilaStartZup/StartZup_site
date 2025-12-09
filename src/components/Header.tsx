@@ -47,7 +47,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/" className="flex flex-col items-center">
-              <img src={logo} alt="Start-zup" className="h-8 w-auto mb-1" />
+              <img src={logo} alt="Start-zup" className="h-8 w-auto mb-1" style={{ filter: 'brightness(0) invert(1)' }} />
               <span className="text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Start-zup</span>
             </a>
           </div>
@@ -83,7 +83,7 @@ const Header = () => {
             </DropdownMenu>
 
             <a href="/engager-entreprise" className="transition-colors relative text-white hover:text-gray-200">
-              Engager votre entreprise
+              Engagez votre entreprise
               {currentPath === "/engager-entreprise" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
             </a>
 
@@ -101,16 +101,12 @@ const Header = () => {
               Notre manifeste
               {currentPath === "/a-propos" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
             </a>
-            <a href="/contact" className="transition-colors relative text-white hover:text-gray-200">
-              Contact
-              {currentPath === "/contact" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
-            </a>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex">
             <Button asChild variant="accent" size="sm" className="gradient-accent text-accent-foreground shadow-hero border-0">
-              <a href="/contact">Prendre rendez-vous</a>
+              <a href="/contact">Contact</a>
             </Button>
           </div>
 
@@ -153,7 +149,7 @@ const Header = () => {
               </div>
 
               <a href="/engager-entreprise" className="block w-full py-2 transition-colors relative text-white hover:text-gray-200">
-                Engager votre entreprise
+                Engagez votre entreprise
                 {currentPath === "/engager-entreprise" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </a>
 
@@ -172,13 +168,8 @@ const Header = () => {
                 {currentPath === "/a-propos" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </a>
               
-              <a href="/contact" className="block w-full py-2 transition-colors relative text-white hover:text-gray-200">
-                Contact
-                {currentPath === "/contact" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
-              </a>
-              
               <Button asChild variant="accent" className="w-full mt-4 gradient-accent text-accent-foreground shadow-hero border-0">
-                <a href="/contact">Prendre rendez-vous</a>
+                <a href="/contact">Contact</a>
               </Button>
             </div>
           </div>
