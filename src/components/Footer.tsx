@@ -68,11 +68,6 @@ const Footer = () => {
                   Contact
                 </a>
               </li>
-              <li>
-                <a href="/mentions-legales" className="text-gray-400 hover:text-gray-300 text-sm transition-colors">
-                  RGPD / Mentions légales
-                </a>
-              </li>
             </ul>
           </div>
         </div>

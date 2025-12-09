@@ -206,8 +206,8 @@ const WhyChooseUsSection = () => {
                 </div>
               </div>
               <div className="flex-shrink-0">
-                <Button asChild variant="accent" size="default" className="gradient-accent text-accent-foreground shadow-hero">
-                  <a href="https://skills.yourlearning.ibm.com/" target="_blank" rel="noopener noreferrer">Accéder à notre programme !</a>
+                <Button variant="accent" size="default" className="gradient-accent text-accent-foreground shadow-hero" disabled>
+                  Accéder à notre programme !
                 </Button>
               </div>
             </CardContent>
