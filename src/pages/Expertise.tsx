@@ -62,14 +62,14 @@ const Expertise = () => {
                   <TabsTrigger 
                     value="support-it" 
                     className="text-black text-xs sm:text-sm transition-all"
-                    style={{ 
+                  style={{
                       background: activeTab === "support-it" ? 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' : 'transparent'
                     }}
                   >
                     Support IT & Cybersécurité
                   </TabsTrigger>
                 </TabsList>
-
+              
                 <TabsContent value="solutions-ia" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' }}>
                   <h3 className="text-xl md:text-2xl font-bold mb-6 text-black">Solutions IA et processus automatisés</h3>
                   <p className="text-black mb-6 text-justify">
@@ -100,7 +100,7 @@ const Expertise = () => {
                           <span>Les gains immédiats en temps, productivité et qualité</span>
                         </li>
                       </ul>
-                    </div>
+              </div>
 
                     {/* Solutions IA Personnalisées */}
                     <div className="bg-white/80 p-6 rounded-lg">
@@ -126,7 +126,7 @@ const Expertise = () => {
                           <span>Modèles IA privés et sécurisés sur vos données internes</span>
                         </li>
                       </ul>
-                    </div>
+              </div>
 
                     {/* Automatisation des Workflows */}
                     <div className="bg-white/80 p-6 rounded-lg">
@@ -156,7 +156,7 @@ const Expertise = () => {
                           <span>Connecteurs API et solutions no-code (Make, Zapier, n8n)</span>
                         </li>
                       </ul>
-                    </div>
+              </div>
 
                     {/* Formation & Accompagnement IA */}
                     <div className="bg-white/80 p-6 rounded-lg">
@@ -182,14 +182,14 @@ const Expertise = () => {
                           <span>Concevoir une automatisation de A à Z</span>
                         </li>
                       </ul>
-                    </div>
+              </div>
 
                     {/* Support & Optimisation Continue */}
                     <div className="bg-white/80 p-6 rounded-lg">
                       <h4 className="text-lg font-bold mb-4 text-black">Support & Optimisation Continue</h4>
                       <p className="text-black mb-4 text-justify">
                         Nous restons à vos côtés pour assurer :
-                      </p>
+                </p>
                       <ul className="space-y-2 text-black">
                         <li className="flex items-start">
                           <span className="inline-flex items-center justify-center w-4 h-4 bg-blue-500 rounded-full mr-2 text-white text-xs font-bold mt-1">✓</span>
@@ -208,13 +208,13 @@ const Expertise = () => {
                           <span>Une veille technologique dédiée</span>
                         </li>
                       </ul>
-                    </div>
+              </div>
                   </div>
-
+                  
                   <p className="text-black mb-6 mt-6 text-center text-lg font-semibold">
                     Accélérez la croissance de votre entreprise grâce à l'IA !
                   </p>
-
+            
                   <div className="text-center">
                     <Button 
                       asChild
@@ -224,7 +224,7 @@ const Expertise = () => {
                     >
                       <a href="/contact">Contactez-nous</a>
                     </Button>
-                  </div>
+                </div>
                 </TabsContent>
 
                 <TabsContent value="support-it" className="bg-white p-6 md:p-8 rounded-lg shadow-lg border-2" style={{ background: 'linear-gradient(135deg, hsl(59 130 246), hsl(139 92 246))' }}>
@@ -256,8 +256,8 @@ const Expertise = () => {
                       </ul>
                       <p className="text-black mt-4 text-justify font-semibold">
                         <strong>Notre objectif : Vous garantir une informatique simple, performante et sécurisée.</strong>
-                      </p>
-                    </div>
+                  </p>
+                </div>
 
                     {/* Cybersécurité – SOC Analyst */}
                     <div className="bg-white/80 p-6 rounded-lg">
@@ -282,10 +282,10 @@ const Expertise = () => {
                       </ul>
                       <p className="text-black mt-4 text-justify font-semibold">
                         <strong>Notre objectif : Protégez vos données sans complexité ni budget démesuré.</strong>
-                      </p>
-                    </div>
+                  </p>
+                </div>
               </div>
-              
+
                   <div className="mt-6 text-center">
                     <Button 
                       asChild
@@ -295,7 +295,7 @@ const Expertise = () => {
                     >
                       <a href="/contact">Contactez-nous</a>
                     </Button>
-                  </div>
+                </div>
                 </TabsContent>
               </Tabs>
             </div>

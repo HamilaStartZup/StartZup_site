@@ -69,8 +69,8 @@ const CampusPartenaire = () => {
         throw new Error("Clé API Airtable manquante (VITE_AIRTABLE_API_KEY)");
       }
 
-      const baseId = "app72hBhqYdnVpWS0";
-      const tableIdOrName = "tbl4jiupKgTzs0btr";
+      const baseId = "appfuYpY01OfMadmg";
+      const tableIdOrName = "tblO0oVYeGPH3xINq";
       const url = `https://api.airtable.com/v0/${baseId}/${tableIdOrName}`;
 
       const commonHeaders = {
@@ -83,7 +83,7 @@ const CampusPartenaire = () => {
         records: [
           {
             fields: {
-              "Nom de l'entreprise": company,
+              "Nom de votre organisation": company,
               "Nom & Prénom": fullName,
               Email: email,
               Téléphone: phone,
@@ -106,7 +106,7 @@ const CampusPartenaire = () => {
         const isUnknownField = errorJson?.error?.type === "UNKNOWN_FIELD_NAME";
         const mentionsCompanyField =
           typeof errorJson?.error?.message === "string" &&
-          errorJson.error.message.includes("Nom de l'entreprise");
+          errorJson.error.message.includes("Nom de votre organisation");
         const mentionsMessageField =
           typeof errorJson?.error?.message === "string" &&
           (errorJson.error.message.includes("Message (optionnel)") || errorJson.error.message.includes("Message"));
@@ -116,7 +116,7 @@ const CampusPartenaire = () => {
             records: [
               {
                 fields: {
-                  "Nom de l'entreprise": company,
+                  "Nom de votre organisation": company,
                   "Nom & Prénom": fullName,
                   Email: email,
                   Téléphone: phone,
@@ -145,7 +145,7 @@ const CampusPartenaire = () => {
               records: [
                 {
                   fields: {
-                    "Nom de l'entreprise": company,
+                    "Nom de votre organisation": company,
                     "Nom & Prénom": fullName,
                     Email: email,
                     Téléphone: phone,

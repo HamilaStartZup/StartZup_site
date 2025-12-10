@@ -11,6 +11,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import chgLogo from "@/assets/CHG.png";
 import ibmLogo from "@/assets/ibm.png";
 import mantesLogo from "@/assets/mantes.png";
@@ -28,6 +35,9 @@ import ardLogo from "@/assets/ard.png";
 import awsLogo from "@/assets/aws.png";
 import intmLogo from "@/assets/intm.png";
 import odooLogo from "@/assets/odoo.png";
+import parisCodeLogo from "@/assets/Logopariscode_nef_fond_blanc.png";
+import parisLogo from "@/assets/Logo-Ville-de-Paris-874x768-site.png";
+import perqoLogo from "@/assets/LE-PERQO-LOGO-FOND-BLANC.jpg";
 import photoImage from "@/assets/WhatsApp2.jpeg";
 
 // Fonction pour retourner le texte sans modification
@@ -39,20 +49,144 @@ const WhyChooseUsSection = () => {
   const [isInscriptionModalOpen, setIsInscriptionModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     nom: "",
-    email: "",
-    telephone: "",
+    prenom: "",
+    dateNaissance: "",
+    adresse: "",
     ville: "",
-    message: "",
+    codePostal: "",
+    formation: "",
+    situationProfessionnelle: "",
+    numeroFranceTravail: "",
+    niveauDiplome: "",
+    commentConnu: "",
+    competencesInformatiques: "",
+    langagesInformatiques: "",
+    cv: null as File | null,
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Envoyer les données du formulaire
-    console.log("Formulaire soumis:", formData);
-    // Fermer la modal après soumission
-    setIsInscriptionModalOpen(false);
-    // Réinitialiser le formulaire
-    setFormData({ nom: "", email: "", telephone: "", ville: "", message: "" });
+    setSubmitting(true);
+    setSubmitSuccess(null);
+    setSubmitError(null);
+
+    try {
+      const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY as string | undefined;
+      if (!apiKey) {
+        throw new Error("Clé API Airtable manquante (VITE_AIRTABLE_API_KEY)");
+      }
+
+      const baseId = "appfuYpY01OfMadmg";
+      const tableIdOrName = "tblYXu5izSmA9kCps";
+      const url = `https://api.airtable.com/v0/${baseId}/${tableIdOrName}`;
+
+      const headers = {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      } as const;
+
+      // Mapping des valeurs du formulaire vers les textes Airtable pour les champs Select
+      const situationProfessionnelleMap: { [key: string]: string } = {
+        "etudiant": "Étudiant",
+        "actif": "Actif",
+        "demandeur-emploi": "Demandeur d'emploi",
+        "entreprise": "Entreprise",
+      };
+
+      const competencesInformatiquesMap: { [key: string]: string } = {
+        "debutant": "Débutant",
+        "intermediaire": "Intermédiaire",
+        "avance": "Avancé",
+      };
+
+      const commentConnuMap: { [key: string]: string } = {
+        "internet": "Internet",
+        "reseau-personnel": "Réseau personnel",
+        "mission-locale-france-travail": "Mission locale / France travail",
+        "autre": "Autre",
+      };
+
+      const niveauDiplomeMap: { [key: string]: string } = {
+        "niveau-3": "Niveau 3 (CAP, BEP)",
+        "niveau-4": "Niveau 4 (Baccalauréat, BP)",
+        "niveau-5": "Niveau 5 (BTS, DUT, DEUST)",
+        "niveau-6": "Niveau 6 (BUT, Licence, Licence professionnelle, Maîtrise)",
+        "niveau-7": "Niveau 7 (Master, diplôme d'études approfondies, diplôme d'études supérieures spécialisées, diplôme d'ingénieur)",
+        "niveau-8": "Niveau 8 (Doctorat, habilitation à diriger des recherches)",
+      };
+
+      const payload = {
+        records: [
+          {
+            fields: {
+              "Nom": formData.nom,
+              "Prénom": formData.prenom,
+              "Date de naissance": formData.dateNaissance,
+              "Adresse": formData.adresse,
+              "Ville": formData.ville,
+              "Code Postal": formData.codePostal,
+              "Sélectionner une formation": formData.formation,
+              "Situation professionnelle": situationProfessionnelleMap[formData.situationProfessionnelle] || formData.situationProfessionnelle,
+              "Numéro france travail": formData.numeroFranceTravail,
+              "Niveau de diplômes": niveauDiplomeMap[formData.niveauDiplome] || formData.niveauDiplome,
+              "Comment avez-vous connu Start-Zup ?": commentConnuMap[formData.commentConnu] || formData.commentConnu,
+              "Compétences informatiques": competencesInformatiquesMap[formData.competencesInformatiques] || formData.competencesInformatiques,
+              "Observations": formData.langagesInformatiques,
+            },
+          },
+        ],
+      };
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const errorJson: any = await res.json().catch(() => ({}));
+        const errorMessage = errorJson?.error?.message || "Erreur lors de l'envoi du formulaire";
+        
+        // Si c'est une erreur de champ inconnu, afficher plus de détails
+        if (errorJson?.error?.type === "UNKNOWN_FIELD_NAME") {
+          throw new Error(`Champ inconnu dans Airtable: ${errorMessage}. Vérifiez que le nom du champ correspond exactement.`);
+        }
+        
+        throw new Error(errorMessage);
+      }
+
+      setSubmitSuccess("Votre inscription a été enregistrée avec succès !");
+      
+      // Fermer la modal et réinitialiser après 2 secondes
+      setTimeout(() => {
+        setIsInscriptionModalOpen(false);
+        setFormData({
+          nom: "",
+          prenom: "",
+          dateNaissance: "",
+          adresse: "",
+          ville: "",
+          codePostal: "",
+          formation: "",
+          situationProfessionnelle: "",
+          numeroFranceTravail: "",
+          niveauDiplome: "",
+          commentConnu: "",
+          competencesInformatiques: "",
+          langagesInformatiques: "",
+          cv: null,
+        });
+        setSubmitSuccess(null);
+      }, 2000);
+    } catch (error: any) {
+      setSubmitError(error.message || "Une erreur est survenue lors de l'envoi du formulaire.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const advantages = [
@@ -87,6 +221,9 @@ const WhyChooseUsSection = () => {
     { name: "AWS", tagline: "Cloud & Scalabilité", image: awsLogo },
     { name: "INTM", tagline: "Partenariat", image: intmLogo },
     { name: "Odoo", tagline: "ERP & Business", image: odooLogo },
+    { name: "Paris Code", tagline: "Partenariat", image: parisCodeLogo },
+    { name: "Ville de Paris", tagline: "Partenariat territorial", image: parisLogo },
+    { name: "Le Perqo", tagline: "Partenariat", image: perqoLogo },
   ];
 
   const [offset, setOffset] = useState(0);
@@ -206,7 +343,12 @@ const WhyChooseUsSection = () => {
                 </div>
               </div>
               <div className="flex-shrink-0">
-                <Button variant="accent" size="default" className="gradient-accent text-accent-foreground shadow-hero" disabled>
+                <Button 
+                  variant="accent" 
+                  size="default" 
+                  className="gradient-accent text-accent-foreground shadow-hero"
+                  onClick={() => setIsInscriptionModalOpen(true)}
+                >
                   Accéder à notre programme !
                 </Button>
               </div>
@@ -354,7 +496,7 @@ const WhyChooseUsSection = () => {
               <div className="aspect-video rounded-lg overflow-hidden">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/fEXVW-0MPhI?start=4"
+                  src="https://www.youtube.com/embed/HZhL77ILIBs"
                   title="Formation Start Zup 1"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -386,7 +528,7 @@ const WhyChooseUsSection = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="nom" className="block text-sm font-medium text-black mb-2">
-                  Nom complet *
+                  Nom *
                 </label>
                 <Input
                   id="nom"
@@ -398,33 +540,46 @@ const WhyChooseUsSection = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
-                  Email *
+                <label htmlFor="prenom" className="block text-sm font-medium text-black mb-2">
+                  Prénom *
                 </label>
                 <Input
-                  id="email"
-                  type="email"
+                  id="prenom"
+                  type="text"
                   required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  value={formData.prenom}
+                  onChange={(e) => setFormData({ ...formData, prenom: e.target.value })}
                   className="w-full"
                 />
               </div>
             </div>
+            <div>
+              <label htmlFor="dateNaissance" className="block text-sm font-medium text-black mb-2">
+                Date de naissance *
+              </label>
+              <Input
+                id="dateNaissance"
+                type="date"
+                required
+                value={formData.dateNaissance}
+                onChange={(e) => setFormData({ ...formData, dateNaissance: e.target.value })}
+                className="w-full"
+              />
+            </div>
+            <div>
+              <label htmlFor="adresse" className="block text-sm font-medium text-black mb-2">
+                Adresse *
+              </label>
+              <Input
+                id="adresse"
+                type="text"
+                required
+                value={formData.adresse}
+                onChange={(e) => setFormData({ ...formData, adresse: e.target.value })}
+                className="w-full"
+              />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="telephone" className="block text-sm font-medium text-black mb-2">
-                  Téléphone *
-                </label>
-                <Input
-                  id="telephone"
-                  type="tel"
-                  required
-                  value={formData.telephone}
-                  onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-                  className="w-full"
-                />
-              </div>
               <div>
                 <label htmlFor="ville" className="block text-sm font-medium text-black mb-2">
                   Ville *
@@ -436,26 +591,181 @@ const WhyChooseUsSection = () => {
                   value={formData.ville}
                   onChange={(e) => setFormData({ ...formData, ville: e.target.value })}
                   className="w-full"
-                  placeholder="Votre ville"
+                />
+              </div>
+              <div>
+                <label htmlFor="codePostal" className="block text-sm font-medium text-black mb-2">
+                  Code postal *
+                </label>
+                <Input
+                  id="codePostal"
+                  type="text"
+                  required
+                  value={formData.codePostal}
+                  onChange={(e) => setFormData({ ...formData, codePostal: e.target.value })}
+                  className="w-full"
                 />
               </div>
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
-                Message (optionnel)
+              <label htmlFor="formation" className="block text-sm font-medium text-black mb-2">
+                Sélectionner une formation *
               </label>
-              <Textarea
-                id="message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              <Select
+                value={formData.formation}
+                onValueChange={(value) => setFormData({ ...formData, formation: value })}
+                required
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Choisissez une formation" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="developpeur-web-no-code-ia">Développeur web, No-Code, IA et automatisations</SelectItem>
+                  <SelectItem value="developpeur-web-full-stack">Développeur Web Full Stack</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label htmlFor="situationProfessionnelle" className="block text-sm font-medium text-black mb-2">
+                Quel est votre situation professionnelle ? *
+              </label>
+              <Select
+                value={formData.situationProfessionnelle}
+                onValueChange={(value) => setFormData({ ...formData, situationProfessionnelle: value })}
+                required
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Choisissez votre situation" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="etudiant">Étudiant</SelectItem>
+                  <SelectItem value="actif">Actif</SelectItem>
+                  <SelectItem value="demandeur-emploi">Demandeur d'emploi</SelectItem>
+                  <SelectItem value="entreprise">Entreprise</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label htmlFor="numeroFranceTravail" className="block text-sm font-medium text-black mb-2">
+                Numéro France Travail
+              </label>
+              <Input
+                id="numeroFranceTravail"
+                type="text"
+                value={formData.numeroFranceTravail}
+                onChange={(e) => setFormData({ ...formData, numeroFranceTravail: e.target.value })}
                 className="w-full"
-                rows={4}
-                placeholder="Dites-nous en plus sur vos motivations..."
               />
             </div>
+            <div>
+              <label htmlFor="niveauDiplome" className="block text-sm font-medium text-black mb-2">
+                Niveau de diplômes *
+              </label>
+              <Select
+                value={formData.niveauDiplome}
+                onValueChange={(value) => setFormData({ ...formData, niveauDiplome: value })}
+                required
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Choisissez votre niveau" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="niveau-3">Niveau 3 (CAP, BEP)</SelectItem>
+                  <SelectItem value="niveau-4">Niveau 4 (Baccalauréat, BP)</SelectItem>
+                  <SelectItem value="niveau-5">Niveau 5 (BTS, DUT, DEUST)</SelectItem>
+                  <SelectItem value="niveau-6">Niveau 6 (BUT, Licence, Licence professionnelle, Maîtrise)</SelectItem>
+                  <SelectItem value="niveau-7">Niveau 7 (Master, diplôme d'études approfondies, diplôme d'études supérieures spécialisées, diplôme d'ingénieur)</SelectItem>
+                  <SelectItem value="niveau-8">Niveau 8 (Doctorat, habilitation à diriger des recherches)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label htmlFor="commentConnu" className="block text-sm font-medium text-black mb-2">
+                Comment avez-vous connu Start-Zup ? *
+              </label>
+              <Select
+                value={formData.commentConnu}
+                onValueChange={(value) => setFormData({ ...formData, commentConnu: value })}
+                required
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Choisissez une option" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="internet">Internet</SelectItem>
+                  <SelectItem value="reseau-personnel">Réseau personnel</SelectItem>
+                  <SelectItem value="mission-locale-france-travail">Mission locale / France travail</SelectItem>
+                  <SelectItem value="autre">Autre</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label htmlFor="competencesInformatiques" className="block text-sm font-medium text-black mb-2">
+                Compétences informatiques *
+              </label>
+              <Select
+                value={formData.competencesInformatiques}
+                onValueChange={(value) => setFormData({ ...formData, competencesInformatiques: value })}
+                required
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Choisissez votre niveau" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="debutant">Débutant</SelectItem>
+                  <SelectItem value="intermediaire">Intermédiaire</SelectItem>
+                  <SelectItem value="avance">Avancé</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label htmlFor="langagesInformatiques" className="block text-sm font-medium text-black mb-2">
+                Quel langage informatique connaissez-vous ?
+              </label>
+              <Input
+                id="langagesInformatiques"
+                type="text"
+                value={formData.langagesInformatiques}
+                onChange={(e) => setFormData({ ...formData, langagesInformatiques: e.target.value })}
+                className="w-full"
+                placeholder="Ex: Python, JavaScript, Java, etc."
+              />
+            </div>
+            <div>
+              <label htmlFor="cv" className="block text-sm font-medium text-black mb-2">
+                CV *
+              </label>
+              <Input
+                id="cv"
+                type="file"
+                required
+                accept=".pdf,.doc,.docx"
+                onChange={(e) => {
+                  const file = e.target.files?.[0] || null;
+                  setFormData({ ...formData, cv: file });
+                }}
+                className="w-full"
+              />
+            </div>
+            {submitError && (
+              <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+                <p className="text-sm text-red-800">{submitError}</p>
+              </div>
+            )}
+            {submitSuccess && (
+              <div className="p-3 bg-green-50 border border-green-200 rounded-md">
+                <p className="text-sm text-green-800">{submitSuccess}</p>
+              </div>
+            )}
             <div className="flex justify-end">
-              <Button type="submit" variant="accent" size="lg" className="gradient-accent text-accent-foreground shadow-hero">
-                Envoyer ma demande
+              <Button 
+                type="submit" 
+                variant="accent" 
+                size="lg" 
+                className="gradient-accent text-accent-foreground shadow-hero"
+                disabled={submitting}
+              >
+                {submitting ? "Envoi en cours..." : "Envoyer ma demande"}
               </Button>
             </div>
           </form>

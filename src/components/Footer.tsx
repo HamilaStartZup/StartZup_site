@@ -4,7 +4,7 @@ import { Mail, MapPin } from "lucide-react";
 const Footer = () => {
   const solutions = [
     { name: "Nos offres", href: "/expertise", color: "#0a84ff" },
-    { name: "Engager votre entreprise", href: "/engager-entreprise", color: "#0a84ff" },
+    { name: "Engagez votre entreprise", href: "/engager-entreprise", color: "#0a84ff" },
     { name: "Campus partenaire", href: "/campus-partenaire", color: "#0a84ff" },
   ];
 
@@ -29,7 +29,7 @@ const Footer = () => {
 
           {/* Solutions */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Nos offres</h3>
+            <h3 className="font-semibold text-white mb-4">Nos solutions</h3>
             <ul className="space-y-2">
               {solutions.map((solution) => (
                 <li key={solution.name}>

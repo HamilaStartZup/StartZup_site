@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/useReveal";
 import { CheckCircle2 } from "lucide-react";
-
+  
 const Formation = () => {
   useReveal();
   return (
@@ -16,7 +16,7 @@ const Formation = () => {
             <div className="relative flex items-center justify-center -mb-4">
               <h1 className="title-acidgrotesk text-black-no-gradient -mb-24 text-3xl sm:text-4xl md:text-6xl lg:text-7xl" style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)' }}>
                 Formation
-              </h1>
+            </h1>
             </div>
             
             <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-6 text-center">
@@ -48,17 +48,17 @@ const Formation = () => {
                     <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
                     <p className="text-lg font-semibold text-gray-800">
                       Comprendre l'IA générative et décisionnel
-                    </p>
-                  </div>
+                  </p>
                 </div>
-                
+              </div>
+              
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-start gap-4">
                     <CheckCircle2 className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
                     <p className="text-lg font-semibold text-gray-800">
                       Utiliser les IA métiers au quotidien
                     </p>
-                  </div>
+                    </div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-pink-50 to-orange-50 p-6 rounded-xl border border-pink-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -68,15 +68,15 @@ const Formation = () => {
                       Créer des prompts professionnels
                     </p>
                   </div>
-                </div>
-                
+              </div>
+
                 <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-6 rounded-xl border border-orange-100 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="flex items-start gap-4">
                     <CheckCircle2 className="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" />
                     <p className="text-lg font-semibold text-gray-800">
                       Concevoir une automatisation de A à Z
-                    </p>
-                  </div>
+                </p>
+              </div>
                 </div>
               </div>
             </div>

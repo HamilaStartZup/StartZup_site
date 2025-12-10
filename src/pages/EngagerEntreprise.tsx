@@ -16,12 +16,12 @@ const EngagerEntreprise = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="relative flex items-center justify-center -mb-4">
               <h1 className="title-acidgrotesk text-black-no-gradient -mb-24 text-3xl sm:text-4xl md:text-6xl lg:text-7xl" style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)' }}>
-                Engager votre entreprise
+                Engagez votre entreprise
               </h1>
             </div>
             
             <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-6 text-center">
-              Recruter un talent formé par Start-Zup
+              Recrutez un talent formé par START-ZUP
             </p>
             
             {/* Section d'espacement */}
@@ -314,86 +314,87 @@ const EngagerEntreprise = () => {
         <section className="py-16 lg:py-20 bg-white reveal-left">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl lg:text-3xl font-bold mb-12 font-inter text-center text-black" style={{ fontSize: '2rem', minHeight: 'auto' }}>
-              Témoignages
+              Grâce à Start Zup...ils/elles ont décroché un poste !
             </h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/fEXVW-0MPhI?start=4"
-                  title="Témoignage 1"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Thomas, en mission chez BNP</p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/fEXVW-0MPhI?start=4"
+                    title="Témoignage 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
               
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/x8_XIuQaji4"
-                  title="Témoignage 2"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Malika, en mission chez BNP</p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/YHGu-2wuPe4"
+                    title="Témoignage 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
               
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/7gsY7SYxick"
-                  title="Témoignage 3"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Gilbert, en CDI chez Solutions 30</p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/INkZDnOfgMs"
+                    title="Témoignage 3"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
               
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/uwkJNPBe5Po"
-                  title="Témoignage 4"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Amine, En CDI chez Helpline</p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/OFJ8X3QNKoY"
+                    title="Témoignage 4"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
               
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/Zk0_r_j2ojc"
-                  title="Témoignage 5"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Billy, En mission chez BNP</p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/gVf8Lo_37mE"
+                    title="Témoignage 5"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
               
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/HZhL77ILIBs"
-                  title="Témoignage 6"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Fred, En CDI chez Helpline</p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/fiRGMD43SeE"
+                    title="Témoignage 6"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
-            </div>
-            
-            <div className="text-center mt-10">
-              <Button 
-                asChild
-                variant="accent" 
-                size="lg" 
-                className="gradient-accent text-accent-foreground shadow-hero hover:shadow-xl transition-all duration-300"
-              >
-                <a 
-                  href="https://www.youtube.com/@StartZup" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  📹 Voir plus de vidéos sur YouTube
-                </a>
-              </Button>
             </div>
           </div>
         </section>

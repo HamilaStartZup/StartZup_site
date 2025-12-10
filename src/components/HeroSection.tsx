@@ -16,8 +16,9 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
         <div className="w-full">
           <div className="text-foreground">
-            <h1 className="title-acidgrotesk text-black-no-gradient mb-0 text-3xl sm:text-4xl md:text-6xl lg:text-7xl w-full leading-tight uppercase text-center" style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)', letterSpacing: '0', wordSpacing: '-0.1em', whiteSpace: 'nowrap' }}>
-              L'ascenseur social par la tech et l'IA
+            <h1 className="title-acidgrotesk text-black-no-gradient mb-0 text-3xl sm:text-4xl md:text-6xl lg:text-7xl w-full leading-tight uppercase text-center" style={{ textShadow: '0 0 8px rgba(56,189,248,0.25), 0 0 16px rgba(56,189,248,0.15), 0 0 24px rgba(56,189,248,0.1)', letterSpacing: '0', wordSpacing: '-0.1em' }}>
+              <span className="hidden md:inline" style={{ whiteSpace: 'nowrap' }}>L'ascenseur social par la tech et l'IA</span>
+              <span className="md:hidden">L'ascenseur social<br />par la tech et l'IA</span>
             </h1>
             <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black mb-6 text-center -mt-[8.75rem]">
               Créer. Innover. Inclure.

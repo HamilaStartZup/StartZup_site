@@ -101,12 +101,17 @@ const Header = () => {
               Notre manifeste
               {currentPath === "/a-propos" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
             </a>
+
+            <a href="/temoignage" className="transition-colors relative text-white hover:text-gray-200">
+              Témoignages
+              {currentPath === "/temoignage" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
+            </a>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex">
             <Button asChild variant="accent" size="sm" className="gradient-accent text-accent-foreground shadow-hero border-0">
-              <a href="/contact">Contact</a>
+              <a href="/contact">Contactez-nous</a>
             </Button>
           </div>
 
@@ -167,9 +172,14 @@ const Header = () => {
                 Notre manifeste
                 {currentPath === "/a-propos" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </a>
+
+              <a href="/temoignage" className="block w-full py-2 transition-colors relative text-white hover:text-gray-200">
+                Témoignages
+                {currentPath === "/temoignage" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
+              </a>
               
               <Button asChild variant="accent" className="w-full mt-4 gradient-accent text-accent-foreground shadow-hero border-0">
-                <a href="/contact">Contact</a>
+                <a href="/contact">Contactez-nous</a>
               </Button>
             </div>
           </div>
