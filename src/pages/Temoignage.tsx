@@ -24,7 +24,6 @@ const Temoignage = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Thomas, en mission chez BNP</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -37,7 +36,6 @@ const Temoignage = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Malika, en mission chez BNP</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -50,7 +48,6 @@ const Temoignage = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Gilbert, en CDI chez Solutions 30</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -63,7 +60,6 @@ const Temoignage = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Amine, En CDI chez Helpline</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -76,7 +72,6 @@ const Temoignage = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Billy, En mission chez BNP</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -89,7 +84,6 @@ const Temoignage = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Fred, En CDI chez Helpline</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -102,7 +96,6 @@ const Temoignage = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Découvrez Start-Zup en vidéo</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -115,7 +108,6 @@ const Temoignage = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Découvrez Start-Zup en vidéo</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -128,7 +120,6 @@ const Temoignage = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Découvrez Start-Zup en vidéo</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -141,14 +132,23 @@ const Temoignage = () => {
               </div>
             </div>
             
-            <div className="flex justify-end items-center gap-3 mt-10">
+            <div className="flex justify-center items-center gap-4 mt-10">
+              <div className="px-6 py-4 rounded-lg" style={{ background: 'linear-gradient(180deg, hsl(320 100% 95%), hsl(280 100% 92%), hsl(60 100% 90%), hsl(30 100% 88%))' }}>
+                <a 
+                  href="https://www.youtube.com/@StartZup/shorts" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity duration-300"
+                >
+                  <span className="text-black font-semibold text-lg">plus de vidéos sur notre chaîne</span>
+                </a>
+              </div>
               <a 
                 href="https://www.youtube.com/@StartZup/shorts" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300"
+                className="hover:opacity-80 transition-opacity duration-300"
               >
-                <span className="text-black font-semibold">plus de vidéos</span>
                 <img 
                   src={youtubeImage} 
                   alt="Voir plus de vidéos sur YouTube" 

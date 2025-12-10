@@ -255,7 +255,7 @@ const Expertise = () => {
                         </li>
                       </ul>
                       <p className="text-black mt-4 text-justify font-semibold">
-                        <strong>Notre objectif : Vous garantir une informatique simple, performante et sécurisée.</strong>
+                        <strong>Notre objectif : garantir une informatique simple, performante et sécurisée.</strong>
                   </p>
                 </div>
 
@@ -281,7 +281,7 @@ const Expertise = () => {
                         </li>
                       </ul>
                       <p className="text-black mt-4 text-justify font-semibold">
-                        <strong>Notre objectif : Protégez vos données sans complexité ni budget démesuré.</strong>
+                        <strong>Notre objectif : protégez vos données sans complexité ni budget démesuré.</strong>
                   </p>
                 </div>
               </div>

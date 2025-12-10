@@ -358,7 +358,7 @@ const EngagerEntreprise = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Amine, En CDI chez Helpline</p>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Amine, en CDI chez Helpline</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -371,7 +371,7 @@ const EngagerEntreprise = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Billy, En mission chez BNP</p>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Billy, en mission chez WHPC</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
@@ -384,7 +384,7 @@ const EngagerEntreprise = () => {
               </div>
               
               <div>
-                <p className="text-sm font-semibold text-black mb-2 text-center">Fred, En CDI chez Helpline</p>
+                <p className="text-sm font-semibold text-black mb-2 text-center">Fred, en CDI chez groupe Vital</p>
                 <div className="aspect-video rounded-lg overflow-hidden">
                   <iframe
                     className="w-full h-full"
