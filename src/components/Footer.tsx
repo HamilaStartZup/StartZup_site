@@ -58,11 +58,13 @@ const Footer = () => {
                   Notre manifeste
                 </a>
               </li>
+              {/* Board - Masqué temporairement
               <li>
                 <a href="/board" className="text-gray-300 hover:text-accent transition-colors">
                   Board
                 </a>
               </li>
+              */}
               <li>
                 <a href="/contact" className="text-gray-300 hover:text-accent transition-colors">
                   Contact

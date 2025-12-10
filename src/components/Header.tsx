@@ -92,10 +92,12 @@ const Header = () => {
               {currentPath === "/campus-partenaire" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
             </a>
 
+            {/* Board - Masqué temporairement
             <a href="/board" className="transition-colors relative text-white hover:text-gray-200">
               Board
               {currentPath === "/board" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
             </a>
+            */}
 
             <a href="/a-propos" className="transition-colors relative text-white hover:text-gray-200">
               Notre manifeste
@@ -163,10 +165,12 @@ const Header = () => {
                 {currentPath === "/campus-partenaire" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </a>
 
+              {/* Board - Masqué temporairement
               <a href="/board" className="block w-full py-2 transition-colors relative text-white hover:text-gray-200">
                 Board
                 {currentPath === "/board" && <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500"></div>}
               </a>
+              */}
 
               <a href="/a-propos" className="block w-full py-2 transition-colors relative text-white hover:text-gray-200">
                 Notre manifeste

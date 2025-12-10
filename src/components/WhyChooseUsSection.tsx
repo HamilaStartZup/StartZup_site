@@ -377,8 +377,13 @@ const WhyChooseUsSection = () => {
               <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'center', letterSpacing: '0', wordSpacing: '-0.1em', fontFamily: 'monospace' }}>{italicizeLastWord("LE BOARD")}<br />{italicizeLastWord("START-ZUP")}</h4>
               <p className="mb-0 text-black text-justify"></p>
               <div className="mt-28 text-center">
+                {/* Bouton désactivé temporairement
                 <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
                   <a href="/board">Découvrir</a>
+                </Button>
+                */}
+                <Button variant="outline" size="sm" className="border-gray-400 text-gray-400 cursor-not-allowed opacity-50" disabled>
+                  Découvrir
                 </Button>
               </div>
             </div>
