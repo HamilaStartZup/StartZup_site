@@ -36,7 +36,7 @@ const Expertise = () => {
                 size="lg" 
                 className="gradient-accent text-accent-foreground shadow-hero w-full sm:w-auto"
               >
-                <a href="/contact?service=expertise">Contact</a>
+                <a href="/contact?service=expertise">Contactez-nous</a>
               </Button>
             </div>
           </div>
