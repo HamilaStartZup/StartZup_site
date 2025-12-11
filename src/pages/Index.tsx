@@ -19,7 +19,7 @@ const Index = () => {
               <div className="aspect-video rounded-lg overflow-hidden">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/-CEe3i7nHiY"
+                  src="https://www.youtube.com/embed/E75tr_xLRfw"
                   title="Start Zup Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

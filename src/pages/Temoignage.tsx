@@ -133,15 +133,18 @@ const Temoignage = () => {
             </div>
             
             <div className="flex justify-center items-center gap-4 mt-10">
-              <div className="px-6 py-4 rounded-lg" style={{ background: 'linear-gradient(180deg, hsl(320 100% 95%), hsl(280 100% 92%), hsl(60 100% 90%), hsl(30 100% 88%))' }}>
-                <a 
-                  href="https://www.youtube.com/@StartZup/shorts" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity duration-300"
-                >
-                  <span className="text-black font-semibold text-lg">plus de vidéos sur notre chaîne</span>
-                </a>
+              <div className="px-6 py-4 rounded-lg relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
+                <div className="absolute inset-0 bg-white/80 z-0"></div>
+                <div className="relative z-10">
+                  <a 
+                    href="https://www.youtube.com/@StartZup/shorts" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity duration-300"
+                  >
+                    <span className="text-black font-semibold text-lg">plus de vidéos sur notre chaîne Youtube</span>
+                  </a>
+                </div>
               </div>
               <a 
                 href="https://www.youtube.com/@StartZup/shorts" 
