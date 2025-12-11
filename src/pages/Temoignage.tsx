@@ -142,7 +142,7 @@ const Temoignage = () => {
                     rel="noopener noreferrer"
                     className="hover:opacity-80 transition-opacity duration-300"
                   >
-                    <span className="text-black font-semibold text-lg">plus de vidéos sur notre chaîne Youtube</span>
+                    <span className="text-black font-semibold text-lg">Plus de vidéos sur notre chaîne Youtube</span>
                   </a>
                 </div>
               </div>
