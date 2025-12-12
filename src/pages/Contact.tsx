@@ -92,7 +92,12 @@ const Contact = () => {
         let errorJson: any = undefined;
         try { errorJson = await res.json(); } catch {}
 
-        // Si le champ a été créé avec l’apostrophe typographique (’), on retente automatiquement
+        // Gestion spécifique de l'erreur 401 (Authentication required)
+        if (res.status === 401) {
+          throw new Error("Erreur d'authentification Airtable. Vérifiez que la clé API est correctement configurée sur Netlify et que le site a été redéployé.");
+        }
+
+        // Si le champ a été créé avec l'apostrophe typographique ('), on retente automatiquement
         const isUnknownField = errorJson?.error?.type === "UNKNOWN_FIELD_NAME";
         const mentionsCompanyField =
           typeof errorJson?.error?.message === "string" &&

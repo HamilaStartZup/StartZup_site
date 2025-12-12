@@ -315,47 +315,6 @@ const WhyChooseUsSection = () => {
           })}
         </div>
 
-        {/* Formation IBM */}
-        <div className="mt-6 sm:mt-8 w-full">
-          <Card className="shadow-card hover:shadow-hero transition-all duration-300 border border-black/20 overflow-hidden flex flex-col" style={{ background: 'linear-gradient(180deg, hsl(320 100% 95%), hsl(280 100% 92%), hsl(60 100% 90%), hsl(30 100% 88%))' }}>
-            <CardContent className="p-5 md:p-6 flex-1 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-              <div className="flex-1 space-y-3">
-                <p className="text-xs font-semibold text-black uppercase tracking-wide">
-                  Des parcours certifiants 100% en ligne.
-                </p>
-                <h3 className="text-xl md:text-2xl font-bold text-black">
-                  Formez-vous gratuitement<br />
-                  avec IBM Skills Build
-                </h3>
-                <div className="space-y-2 pt-3">
-                  <div className="flex items-start space-x-2">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-black font-medium text-sm">
-                      <span className="font-bold">Hardskills</span> : Les essentiels de la Tech
-                    </p>
-                  </div>
-                  <div className="flex items-start space-x-2">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-black font-medium text-sm">
-                      <span className="font-bold">Soft skills</span> : Compétences professionnelles et savoir être
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-shrink-0">
-                <Button 
-                  variant="accent" 
-                  size="default" 
-                  className="gradient-accent text-accent-foreground shadow-hero"
-                  onClick={() => setIsInscriptionModalOpen(true)}
-                >
-                  Accéder à notre programme !
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
         {/* Deux nouvelles cartes */}
         <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12 mt-8 sm:mt-12">
           <div className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
@@ -371,23 +330,58 @@ const WhyChooseUsSection = () => {
             </div>
           </div>
 
+          {/* Carte IBM - Temporairement à la place de LE BOARD */}
+          <div className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(180deg, hsl(320 100% 95%), hsl(280 100% 92%), hsl(60 100% 90%), hsl(30 100% 88%))' }}>
+            <div className="relative z-10 flex flex-col h-full justify-center items-center text-center">
+              <p className="text-xs font-semibold text-black uppercase tracking-wide mb-2">
+                Des parcours certifiants 100% en ligne.
+              </p>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4">
+                Formez-vous gratuitement<br />
+                avec IBM Skills Build
+              </h3>
+              <div className="space-y-2 mb-4 text-sm">
+                <div className="flex items-start justify-center space-x-2">
+                  <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-black font-medium">
+                    <span className="font-bold">Hardskills</span> : Les essentiels de la Tech
+                  </p>
+                </div>
+                <div className="flex items-start justify-center space-x-2">
+                  <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-black font-medium">
+                    <span className="font-bold">Soft skills</span> : Compétences professionnelles et savoir être
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4">
+                <Button 
+                  variant="accent" 
+                  size="sm" 
+                  className="gradient-accent text-accent-foreground shadow-hero"
+                  onClick={() => setIsInscriptionModalOpen(true)}
+                >
+                  Accéder à notre programme !
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Carte LE BOARD - Masquée temporairement */}
+          {/*
           <div className="border border-border/50 rounded-lg p-4 sm:p-6 shadow-card hover:shadow-hero transition-all duration-300 group cursor-pointer hover-tilt-outline flex flex-col aspect-[4/3] relative overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(56, 189, 248, 0.6), rgba(139, 92, 246, 0.6), transparent)' }}>
             <div className="absolute inset-0 bg-white/80 z-0"></div>
             <div className="relative z-10 flex flex-col h-full">
               <h4 className="font-bold mb-3 text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[65px]" style={{ textAlign: 'center', letterSpacing: '0', wordSpacing: '-0.1em', fontFamily: 'monospace' }}>{italicizeLastWord("LE BOARD")}<br />{italicizeLastWord("START-ZUP")}</h4>
               <p className="mb-0 text-black text-justify"></p>
               <div className="mt-28 text-center">
-                {/* Bouton désactivé temporairement
-                <Button asChild variant="outline" size="sm" className="border-black text-black hover:bg-black hover:text-white transition-colors">
-                  <a href="/board">Découvrir</a>
-                </Button>
-                */}
                 <Button variant="outline" size="sm" className="border-gray-400 text-gray-400 cursor-not-allowed opacity-50" disabled>
                   Découvrir
                 </Button>
               </div>
             </div>
           </div>
+          */}
         </div>
 
         {/* Section Formation Entreprise */}
